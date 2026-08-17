@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2C1B10" />
   <title>Chinyere Clara Mmiliogu — Community. Operations. Data. Impact.</title>
   <meta name="description" content="Portfolio of Chinyere Clara Mmiliogu — a Community Operations and Data Analytics professional building engaging community experiences and using data to improve operations and impact." />
   <meta name="author" content="Chinyere Clara Mmiliogu" />
@@ -11,11 +12,12 @@
   <meta property="og:title" content="Chinyere Clara Mmiliogu — Community. Operations. Data. Impact." />
   <meta property="og:description" content="Community Operations | Events | Learner Engagement | Data Analytics" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero.jpg" />
 
-  <!-- Favicon (inline SVG: navy circle with green initials) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230B2D56'/%3E%3Ctext x='50' y='67' font-family='Montserrat,Arial,sans-serif' font-size='42' font-weight='700' fill='%2300A86B' text-anchor='middle'%3ECM%3C/text%3E%3C/svg%3E" />
+  <!-- Favicon (espresso circle, gold initials) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%232C1B10'/%3E%3Ctext x='50' y='67' font-family='Montserrat,Arial,sans-serif' font-size='42' font-weight='700' fill='%23C39A3B' text-anchor='middle'%3ECM%3C/text%3E%3C/svg%3E" />
 
-  <!-- Fonts: Montserrat (headings) + Inter (body, an Aptos/Calibri-style humanist sans) -->
+  <!-- Fonts: Montserrat (headings) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -23,28 +25,30 @@
   <!-- Tailwind CSS (Play CDN — zero build step, works directly on GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    /* THEME: Espresso & Gold
+       espresso = warm dark browns · cream = page background
+       gold = primary accent · clay = red (Operations) · sage = green (Data) */
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            navy: {
-              50: '#eef3f9', 100: '#d6e2f0', 200: '#adc3e0', 300: '#7b9bc9',
-              400: '#4a70ad', 500: '#274f8c', 600: '#183c72', DEFAULT: '#0B2D56',
-              700: '#0B2D56', 800: '#092343', 900: '#061a32',
+            espresso: {
+              50: '#F7F1E8', 100: '#EADFCB', 200: '#D6C3A3', 300: '#B79A6F',
+              400: '#8A6420', 500: '#6B4520', 600: '#452A18',
+              DEFAULT: '#2C1B10', 700: '#2C1B10', 800: '#24160D', 900: '#1D1109',
             },
-            brandgreen: {
-              50: '#e6f8f0', 100: '#c2efdc', 200: '#89e0bc', 300: '#4fce9c',
-              400: '#1eb87e', DEFAULT: '#00A86B', 500: '#00A86B', 600: '#009160',
-              700: '#00734d', 800: '#00563a', 900: '#003a27',
+            cream: { DEFAULT: '#FBF6EC', 100: '#FBF6EC', 200: '#F5EDDF', 300: '#EADFCB' },
+            gold: {
+              light: '#E3C578', DEFAULT: '#C39A3B', 400: '#D4AC50',
+              500: '#C39A3B', 600: '#A87F27', 700: '#8A6420',
             },
+            clay: { light: '#E4715C', DEFAULT: '#A83A2B', 600: '#8F2F22' },
+            sage: { light: '#7CC49B', DEFAULT: '#3F7A5A', 600: '#2F6349' },
+            ink: '#24170F',
           },
           fontFamily: {
             heading: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
             body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          },
-          boxShadow: {
-            card: '0 10px 30px -12px rgba(11, 45, 86, 0.18)',
-            'card-hover': '0 24px 48px -16px rgba(11, 45, 86, 0.28)',
           },
         },
       },
@@ -54,25 +58,25 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="font-body text-navy-900 bg-white antialiased">
+<body class="font-body bg-cream text-espresso-700 antialiased">
 
   <!-- Skip link for accessibility -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-espresso focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
 
   <!-- ============================ NAVBAR ============================ -->
   <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-[72px]">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[64px] lg:h-[72px]">
       <!-- Brand -->
-      <a href="#home" class="flex items-center gap-3 group" aria-label="Home">
-        <span class="grid place-items-center w-10 h-10 rounded-full bg-navy text-brandgreen font-heading font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">CM</span>
+      <a href="#home" class="flex items-center gap-2.5 group" aria-label="Home">
+        <span class="grid place-items-center w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-espresso text-gold font-heading font-extrabold text-base shadow-md group-hover:scale-105 transition-transform shrink-0">CM</span>
         <span class="hidden sm:block leading-tight">
-          <span class="block font-heading font-bold text-[15px] nav-brand-text">Chinyere Clara Mmiliogu</span>
-          <span class="block text-[11px] tracking-wide nav-brand-sub">Community · Operations · Data</span>
+          <span class="block font-heading font-bold text-[13.5px] nav-brand-text">Chinyere Clara Mmiliogu</span>
+          <span class="block text-[10px] tracking-wide nav-brand-sub">Community · Operations · Data</span>
         </span>
       </a>
 
       <!-- Desktop links -->
-      <ul class="hidden lg:flex items-center gap-1" id="nav-links">
+      <ul class="hidden lg:flex items-center gap-0.5" id="nav-links">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#community-projects" class="nav-link">Community</a></li>
@@ -80,7 +84,7 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#resume" class="nav-link">Resume</a></li>
         <li>
-          <a href="#contact" class="ml-2 inline-flex items-center gap-2 rounded-full bg-brandgreen px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-brandgreen-600 hover:shadow-lg transition-all">
+          <a href="#contact" class="ml-2 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-espresso shadow-md hover:bg-gold-light hover:shadow-lg transition-all">
             Contact
           </a>
         </li>
@@ -94,8 +98,8 @@
     </nav>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-white/98 backdrop-blur border-t border-navy-100 shadow-lg">
-      <ul class="px-5 py-4 space-y-1">
+    <div id="mobile-menu" class="lg:hidden hidden bg-cream/98 backdrop-blur border-t border-espresso-100 shadow-lg max-h-[calc(100vh-64px)] overflow-y-auto">
+      <ul class="px-4 py-3 space-y-0.5">
         <li><a href="#home" class="mobile-link">Home</a></li>
         <li><a href="#about" class="mobile-link">About</a></li>
         <li><a href="#community-projects" class="mobile-link">Community Projects</a></li>
@@ -110,18 +114,18 @@
   <main id="main">
 
     <!-- ============================ HERO ============================ -->
-    <section id="home" class="relative overflow-hidden bg-navy text-white">
+    <section id="home" class="relative overflow-hidden text-white">
       <!-- Decorative background -->
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brandgreen/20 blur-3xl" aria-hidden="true"></div>
-      <div class="absolute bottom-0 -left-24 w-96 h-96 rounded-full bg-navy-400/20 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute -top-24 -right-20 w-72 h-72 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
 
-      <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-28 pb-20 lg:pt-32 lg:pb-28">
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 lg:pt-28 lg:pb-24">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
 
-          <!-- Hero image (stacks below text on mobile; sits on the LEFT on desktop) -->
-          <div class="reveal order-2 lg:order-1" style="--delay:.15s">
-            <figure class="hero-figure w-full max-w-sm lg:max-w-[440px] mx-auto">
+          <!-- IMAGE — first in the DOM so it appears FIRST on mobile,
+               and lands in the LEFT column on desktop. -->
+          <div class="reveal">
+            <figure class="hero-figure w-full max-w-[200px] sm:max-w-[250px] lg:max-w-[400px] mx-auto lg:mx-0">
               <div class="hero-image-wrap">
                 <img src="assets/images/hero.jpg"
                      alt="Chinyere Clara Mmiliogu"
@@ -131,29 +135,51 @@
             </figure>
           </div>
 
-          <!-- Text (shows first on mobile; sits on the RIGHT on desktop) -->
-          <div class="order-1 lg:order-2">
-            <h1 class="reveal font-heading font-extrabold leading-[1.05] text-3xl sm:text-4xl lg:text-5xl xl:text5xl">
-              Chinyere <span class="text-gradient">Mmiliogu</span>
+          <!-- TEXT -->
+          <div class="text-center lg:text-left">
+            <p class="reveal inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/5 px-3 py-1 text-[11px] sm:text-xs font-medium text-gold-light mb-4">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+              Open to Community, Operations &amp; Data roles
+            </p>
+
+            <h1 class="reveal font-heading font-extrabold leading-[1.1] text-[1.6rem] sm:text-3xl lg:text-4xl xl:text-5xl">
+              Chinyere Clara<br />
+              <span class="text-gradient">Mmiliogu</span>
             </h1>
 
-            <p class="reveal mt-4 text-base sm:text-lg text-navy-200 leading-relaxed" style="--delay:.15s">
+            <!-- Three fine circles under the name -->
+            <ul class="hero-circles reveal justify-center lg:justify-start" style="--delay:.1s" aria-label="Focus areas">
+              <li class="hero-circle hero-circle--community">Community</li>
+              <li class="hero-circle hero-circle--data">Data</li>
+              <li class="hero-circle hero-circle--operations">Operations</li>
+            </ul>
+
+            <p class="reveal mt-5 text-[0.82rem] sm:text-sm lg:text-base text-espresso-200 font-medium" style="--delay:.15s">
+              Community Operations · Events · Learner Engagement · Data Analytics
+            </p>
+
+            <p class="reveal mt-3 text-[0.8rem] sm:text-[0.88rem] lg:text-[0.95rem] text-espresso-200/90 leading-relaxed max-w-xl mx-auto lg:mx-0" style="--delay:.2s">
               I build engaging community experiences and use data to understand participation,
               improve operations, and create better experiences for the people we serve.
             </p>
 
+            <!-- Positioning statement -->
+            <p class="reveal mt-6 font-heading font-bold text-sm sm:text-base lg:text-lg tracking-tight" style="--delay:.25s">
+              Community. <span class="text-gold-light">Operations.</span> Data. <span class="text-gold-light">Impact.</span>
+            </p>
+
             <!-- CTAs -->
-            <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="--delay:.25s">
+            <div class="reveal mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-3" style="--delay:.3s">
               <a href="#community-projects" class="btn-primary">
                 View Projects
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
               <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 Download CV
               </a>
               <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
                 LinkedIn
               </a>
             </div>
@@ -162,22 +188,22 @@
         </div>
       </div>
 
-      <!-- Wave divider -->
+      <!-- Wave divider into the cream page background -->
       <div class="relative -mb-1" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block"><path d="M0 80h1440V0c-240 53.3-480 53.3-720 0S240 0 0 40v40z" fill="#ffffff"/></svg>
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block"><path d="M0 80h1440V0c-240 53.3-480 53.3-720 0S240 0 0 40v40z" fill="#FBF6EC"/></svg>
       </div>
     </section>
 
     <!-- ============================ IMPACT STATS ============================ -->
-    <section class="bg-white" aria-label="Impact at a glance">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 -mt-4 pb-4">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <section class="bg-cream" aria-label="Impact at a glance">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-2">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           <div class="reveal stat-card">
-            <div class="stat-number" data-count="8" data-suffix="">0</div>
+            <div class="stat-number" data-count="8">0</div>
             <p class="stat-label">Featured Projects</p>
           </div>
           <div class="reveal stat-card" style="--delay:.08s">
-            <div class="stat-number" data-count="3" data-suffix="">0</div>
+            <div class="stat-number" data-count="3">0</div>
             <p class="stat-label">Lagos Hubs Served</p>
           </div>
           <div class="reveal stat-card" style="--delay:.16s">
@@ -193,35 +219,34 @@
     </section>
 
     <!-- ============================ ABOUT ============================ -->
-    <section id="about" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="grid lg:grid-cols-12 gap-12 items-start">
-          <!-- Left: portrait + quick facts -->
+    <section id="about" class="py-14 lg:py-24 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <!-- Portrait -->
           <div class="lg:col-span-5 reveal">
-            <div class="relative">
-              <!-- Portrait placeholder — replace src with a real photo -->
-              <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-navy shadow-card">
+            <div class="relative max-w-[260px] sm:max-w-[320px] lg:max-w-none mx-auto">
+              <div class="aspect-[4/5] rounded-2xl lg:rounded-3xl overflow-hidden bg-espresso shadow-lg">
                 <img src="assets/images/portrait.jpg" alt="Chinyere Clara Mmiliogu" class="w-full h-full object-cover"
                      onerror="this.style.display='none'; this.parentElement.classList.add('portrait-fallback');" />
                 <div class="portrait-initials font-heading">CM</div>
               </div>
               <!-- Floating badge -->
-              <div class="absolute -bottom-5 -right-3 sm:right-6 bg-white rounded-2xl shadow-card px-5 py-4 border border-navy-50">
-                <p class="text-xs uppercase tracking-wider text-navy-400 font-semibold">Currently</p>
-                <p class="font-heading font-bold text-navy">ALX Africa</p>
-                <p class="text-sm text-navy-500">Community &amp; Operations</p>
+              <div class="absolute -bottom-4 -right-2 sm:right-4 bg-white rounded-xl shadow-lg px-3.5 py-2.5 border border-espresso-100">
+                <p class="text-[9px] uppercase tracking-wider text-gold-600 font-bold">Currently</p>
+                <p class="font-heading font-bold text-sm text-ink">ALX Africa</p>
+                <p class="text-[11px] text-espresso-400">Community &amp; Operations</p>
               </div>
             </div>
           </div>
 
-          <!-- Right: bio -->
+          <!-- Bio -->
           <div class="lg:col-span-7 reveal" style="--delay:.1s">
             <p class="section-eyebrow">About Me</p>
             <h2 class="section-title">Where people, programmes &amp; data meet</h2>
 
-            <div class="mt-6 space-y-5 text-navy-600 text-lg leading-relaxed">
+            <div class="mt-5 space-y-3.5 text-[0.875rem] lg:text-[0.95rem] leading-relaxed">
               <p>
-                I am a <strong class="text-navy">Community Operations and Data Analytics</strong> professional
+                I am a <strong class="text-ink font-semibold">Community Operations and Data Analytics</strong> professional
                 passionate about building meaningful communities and using data to create better experiences
                 for the people they serve.
               </p>
@@ -232,7 +257,7 @@
                 improvements.
               </p>
               <p>
-                Through my experience at <strong class="text-navy">ALX Africa</strong>, I have supported learner
+                Through my experience at <strong class="text-ink font-semibold">ALX Africa</strong>, I have supported learner
                 and alumni engagement, volunteer coordination, hub operations, community events, reporting, and
                 data-driven decision-making.
               </p>
@@ -243,33 +268,33 @@
             </div>
 
             <!-- Focus areas -->
-            <div class="mt-8 grid sm:grid-cols-2 gap-4">
+            <div class="mt-7 grid sm:grid-cols-2 gap-3">
               <div class="focus-card">
                 <span class="focus-icon">🤝</span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Community Building</p>
-                  <p class="text-sm text-navy-500">Engagement, events &amp; belonging</p>
+                  <p class="focus-title">Community Building</p>
+                  <p class="focus-sub">Engagement, events &amp; belonging</p>
                 </div>
               </div>
               <div class="focus-card">
                 <span class="focus-icon">🗂️</span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Programme &amp; Event Execution</p>
-                  <p class="text-sm text-navy-500">Planning to on-ground delivery</p>
+                  <p class="focus-title">Programme &amp; Event Execution</p>
+                  <p class="focus-sub">Planning to on-ground delivery</p>
                 </div>
               </div>
               <div class="focus-card">
                 <span class="focus-icon">⚙️</span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Operations</p>
-                  <p class="text-sm text-navy-500">Logistics, procurement &amp; budgets</p>
+                  <p class="focus-title">Operations</p>
+                  <p class="focus-sub">Logistics, procurement &amp; budgets</p>
                 </div>
               </div>
               <div class="focus-card">
                 <span class="focus-icon">📊</span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Data Analytics</p>
-                  <p class="text-sm text-navy-500">Reporting, dashboards &amp; insight</p>
+                  <p class="focus-title">Data Analytics</p>
+                  <p class="focus-sub">Reporting, dashboards &amp; insight</p>
                 </div>
               </div>
             </div>
@@ -279,8 +304,8 @@
     </section>
 
     <!-- ============================ COMMUNITY PROJECTS ============================ -->
-    <section id="community-projects" class="py-20 lg:py-28 bg-navy-50/60">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <section id="community-projects" class="py-14 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl reveal">
           <p class="section-eyebrow">Community Projects</p>
           <h2 class="section-title">Building vibrant communities</h2>
@@ -290,7 +315,7 @@
           </p>
         </div>
 
-        <div class="mt-12 grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div class="mt-9 lg:mt-12 grid md:grid-cols-2 gap-5 lg:gap-7">
 
           <!-- Project 1 -->
           <article class="reveal project-card">
@@ -402,7 +427,7 @@
           <!-- Project 5 -->
           <article class="reveal project-card md:col-span-2" style="--delay:.1s">
             <div class="md:flex">
-              <div class="project-media project-media--5 md:w-2/5 md:min-h-[220px]">
+              <div class="project-media project-media--5 md:w-2/5 md:min-h-[200px]">
                 <span class="project-tag">Lead Organiser</span>
                 <span class="project-emoji">💝</span>
               </div>
@@ -428,8 +453,8 @@
     </section>
 
     <!-- ============================ DATA PROJECTS ============================ -->
-    <section id="data-projects" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <section id="data-projects" class="py-14 lg:py-24 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl reveal">
           <p class="section-eyebrow">Data Projects</p>
           <h2 class="section-title">Turning data into decisions</h2>
@@ -439,7 +464,7 @@
           </p>
         </div>
 
-        <div class="mt-12 grid lg:grid-cols-3 gap-6 lg:gap-8">
+        <div class="mt-9 lg:mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
 
           <!-- Data Project 6 -->
           <article class="reveal data-card">
@@ -504,7 +529,7 @@
           </article>
 
           <!-- Data Project 8 -->
-          <article class="reveal data-card" style="--delay:.2s">
+          <article class="reveal data-card md:col-span-2 lg:col-span-1" style="--delay:.2s">
             <div class="data-card-top">
               <span class="data-icon">🏢</span>
               <div class="data-tools">
@@ -538,19 +563,18 @@
     </section>
 
     <!-- ============================ SKILLS ============================ -->
-    <section id="skills" class="py-20 lg:py-28 bg-navy text-white relative overflow-hidden">
-      <div class="absolute -top-32 right-0 w-80 h-80 rounded-full bg-brandgreen/10 blur-3xl" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative">
+    <section id="skills" class="py-14 lg:py-24 bg-espresso text-white relative overflow-hidden">
+      <div class="absolute -top-28 right-0 w-72 h-72 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-3xl reveal">
           <p class="section-eyebrow section-eyebrow--light">Skills</p>
           <h2 class="section-title text-white">A blend of people &amp; numbers</h2>
-          <p class="section-lead text-navy-200">
+          <p class="section-lead text-espresso-200">
             Three connected skill sets that let me run great programmes and prove their impact.
           </p>
         </div>
 
-        <div class="mt-12 grid md:grid-cols-3 gap-6">
-          <!-- Community -->
+        <div class="mt-9 lg:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <div class="reveal skill-group">
             <div class="skill-head">
               <span class="skill-head-icon">🤝</span>
@@ -567,7 +591,6 @@
             </ul>
           </div>
 
-          <!-- Operations -->
           <div class="reveal skill-group" style="--delay:.1s">
             <div class="skill-head">
               <span class="skill-head-icon">⚙️</span>
@@ -582,8 +605,7 @@
             </ul>
           </div>
 
-          <!-- Data -->
-          <div class="reveal skill-group" style="--delay:.2s">
+          <div class="reveal skill-group sm:col-span-2 lg:col-span-1" style="--delay:.2s">
             <div class="skill-head">
               <span class="skill-head-icon">📊</span>
               <h3 class="skill-head-title">Data</h3>
@@ -603,10 +625,10 @@
     </section>
 
     <!-- ============================ RESUME ============================ -->
-    <section id="resume" class="py-20 lg:py-28 bg-white">
-      <div class="max-w-5xl mx-auto px-5 sm:px-8">
-        <div class="rounded-3xl bg-navy-50/70 border border-navy-100 p-8 sm:p-12 reveal">
-          <div class="grid md:grid-cols-2 gap-10 items-center">
+    <section id="resume" class="py-14 lg:py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl lg:rounded-3xl bg-cream border border-espresso-100 p-6 sm:p-9 lg:p-11 reveal">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p class="section-eyebrow">Resume</p>
               <h2 class="section-title">Take the details with you</h2>
@@ -614,9 +636,9 @@
                 A one-page snapshot of my experience across community, operations and data — ready to
                 download and share.
               </p>
-              <div class="mt-8 flex flex-wrap gap-4">
+              <div class="mt-6 flex flex-wrap gap-3">
                 <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                   Download CV
                 </a>
                 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="btn-outline">
@@ -625,26 +647,26 @@
               </div>
             </div>
 
-            <ul class="space-y-4">
+            <ul class="space-y-3">
               <li class="resume-highlight">
                 <span class="resume-dot"></span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Community &amp; Operations — ALX Africa</p>
-                  <p class="text-sm text-navy-500">Learner &amp; alumni engagement, hub operations, events &amp; reporting</p>
+                  <p class="resume-title">Community &amp; Operations — ALX Africa</p>
+                  <p class="resume-sub">Learner &amp; alumni engagement, hub operations, events &amp; reporting</p>
                 </div>
               </li>
               <li class="resume-highlight">
                 <span class="resume-dot"></span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Programme &amp; Event Execution</p>
-                  <p class="text-sm text-navy-500">Planning, logistics and on-ground delivery for 120+ attendee events</p>
+                  <p class="resume-title">Programme &amp; Event Execution</p>
+                  <p class="resume-sub">Planning, logistics and on-ground delivery for 120+ attendee events</p>
                 </div>
               </li>
               <li class="resume-highlight">
                 <span class="resume-dot"></span>
                 <div>
-                  <p class="font-heading font-semibold text-navy">Data &amp; Reporting</p>
-                  <p class="text-sm text-navy-500">Dashboards, feedback analysis and KPI tracking for decision support</p>
+                  <p class="resume-title">Data &amp; Reporting</p>
+                  <p class="resume-sub">Dashboards, feedback analysis and KPI tracking for decision support</p>
                 </div>
               </li>
             </ul>
@@ -654,8 +676,8 @@
     </section>
 
     <!-- ============================ CONTACT ============================ -->
-    <section id="contact" class="py-20 lg:py-28 bg-navy-50/60">
-      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <section id="contact" class="py-14 lg:py-24 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto reveal">
           <p class="section-eyebrow">Contact</p>
           <h2 class="section-title">Let's build something with impact</h2>
@@ -665,7 +687,7 @@
           </p>
         </div>
 
-        <div class="mt-12 grid sm:grid-cols-3 gap-5 reveal" style="--delay:.1s">
+        <div class="mt-9 lg:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 reveal" style="--delay:.1s">
           <a href="mailto:your.email@example.com" class="contact-card">
             <span class="contact-icon">✉️</span>
             <p class="contact-label">Email</p>
@@ -688,17 +710,17 @@
   </main>
 
   <!-- ============================ FOOTER ============================ -->
-  <footer class="bg-navy-900 text-navy-200">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+  <footer class="bg-espresso-900 text-espresso-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 lg:py-11">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
         <div class="flex items-center gap-3">
-          <span class="grid place-items-center w-10 h-10 rounded-full bg-white/5 text-brandgreen font-heading font-extrabold">CM</span>
-          <div>
-            <p class="font-heading font-bold text-white">Chinyere Clara Mmiliogu</p>
-            <p class="text-sm">Community. Operations. Data. Impact.</p>
+          <span class="grid place-items-center w-9 h-9 rounded-full bg-white/5 text-gold font-heading font-extrabold text-sm shrink-0">CM</span>
+          <div class="text-center md:text-left">
+            <p class="font-heading font-bold text-white text-sm">Chinyere Clara Mmiliogu</p>
+            <p class="text-xs">Community. Operations. Data. Impact.</p>
           </div>
         </div>
-        <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+        <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           <li><a href="#about" class="footer-link">About</a></li>
           <li><a href="#community-projects" class="footer-link">Community</a></li>
           <li><a href="#data-projects" class="footer-link">Data</a></li>
@@ -706,7 +728,7 @@
           <li><a href="#contact" class="footer-link">Contact</a></li>
         </ul>
       </div>
-      <div class="mt-8 pt-6 border-t border-white/10 text-center text-sm text-navy-300">
+      <div class="mt-7 pt-5 border-t border-white/10 text-center text-xs text-espresso-300">
         © <span id="year">2026</span> Chinyere Clara Mmiliogu. Built with HTML, Tailwind CSS &amp; JavaScript.
       </div>
     </div>

@@ -108,9 +108,21 @@ Or use the **VS Code "Live Server"** extension → right-click `index.html` →
 - **Text & projects:** everything lives in `index.html` in clearly commented
   sections (`<!-- ===== COMMUNITY PROJECTS ===== -->`, etc.). Edit the text
   directly.
-- **Colours:** brand colours are defined once in the `tailwind.config` block near
-  the top of `index.html` (`navy` = `#0B2D56`, `brandgreen` = `#00A86B`) and in
-  the `:root` variables of `css/styles.css`.
+- **Colours:** the **Espresso & Gold** palette is defined once in the
+  `tailwind.config` block near the top of `index.html` and mirrored as CSS
+  variables in `:root` at the top of `css/styles.css`:
+  | Token | Hex | Used for |
+  |---|---|---|
+  | `cream` | `#FBF6EC` | page background |
+  | `espresso` | `#2C1B10` | hero & footer background (blends with the hero photo) |
+  | `ink` | `#24170F` | headings |
+  | body text | `#574636` | paragraphs |
+  | `gold` | `#C39A3B` | primary accent, buttons, stats |
+  | `clay` | `#A83A2B` | red — the "Operations" circle |
+  | `sage` | `#3F7A5A` | green — the "Data" circle |
+
+  On the dark hero, the red and green circles use lightened variants
+  (`#E4715C` / `#7CC49B`) so they stay legible against the espresso background.
 - **Fonts:** Headings use **Montserrat**; body uses **Inter** (a clean,
   Aptos/Calibri-style humanist sans). Both load from Google Fonts in the
   `<head>`.
