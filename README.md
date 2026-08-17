@@ -17,9 +17,11 @@ community_portfolio/
 ├── css/
 │   └── styles.css          # Custom styles + animations on top of Tailwind
 ├── js/
-│   └── main.js             # Nav, scroll-spy, reveal animations, counters
+│   ├── main.js             # Nav, scroll-spy, reveal animations, counters
+│   └── gallery.js          # Project preview images + photo lightbox
 ├── assets/
-│   ├── images/             # ← add portrait.jpg + event photos here
+│   ├── images/             # ← add hero.jpg + portrait.jpg here
+│   │   ├── community_projects/   # ← event photos, one folder per project
 │   │   └── README.md
 │   └── cv/                 # ← add your CV PDF here
 │       └── README.md
@@ -39,12 +41,16 @@ Search `index.html` for each item and replace it with your real details:
 | Placeholder                                   | Where it appears                         | Replace with                        |
 |-----------------------------------------------|------------------------------------------|-------------------------------------|
 | `YOUR-LINKEDIN`                               | Hero, Résumé, Contact (3 links)          | Your LinkedIn profile URL slug      |
-| `your.email@example.com`                      | Contact section (2 places)               | Your real email address             |
 | `assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf`    | Hero, Résumé, Contact                    | Add the PDF (name it exactly this)  |
-| `assets/images/portrait.jpg`                  | About section                            | Add your photo (optional)           |
+| `assets/images/banner.jpg`                    | Hero banner (optional)                   | The marbled banner from the Wix site |
 
-> 💡 The site still looks complete without a photo or CV — the portrait shows a
-> "CM" placeholder, and CV links simply won't download until the file is added.
+Email (`clarammiliogu@gmail.com`) and phone (`07062625920`) are already filled in
+from the Wix site's Contact section. The street address from that page is **not**
+included — add it to the Contact section yourself if you want it public here too.
+
+> 💡 The site still looks complete without a photo, banner or CV — the portrait
+> shows a "CM" placeholder, the banner falls back to CSS art, and CV links simply
+> won't download until the file is added.
 
 ---
 
@@ -108,37 +114,74 @@ Or use the **VS Code "Live Server"** extension → right-click `index.html` →
 - **Text & projects:** everything lives in `index.html` in clearly commented
   sections (`<!-- ===== COMMUNITY PROJECTS ===== -->`, etc.). Edit the text
   directly.
-- **Colours:** the palette is a reproduction of the original Wix portfolio theme —
-  white-dominant, flat, and understated. It's defined once in the `tailwind.config`
-  block near the top of `index.html` and mirrored as CSS variables in `:root` at the
-  top of `css/styles.css`:
+- **Colours:** the palette is a reproduction of the original Wix portfolio theme.
+  It's defined once in the `tailwind.config` block near the top of `index.html`
+  and mirrored as CSS variables in `:root` at the top of `css/styles.css`:
 
   | Token | Hex | Used for |
   |---|---|---|
-  | page background | `#FFFFFF` | most sections |
-  | `band` | `#F4F2EF` | alternating light-grey section bands (Data, Résumé) |
-  | `band-warm` | `#EFEBE7` | the About section band |
-  | `coffee` | `#3E2C1C` | navbar bar + hero banner |
-  | `cocoa` | `#472B15` | Contact band |
-  | `cocoa-deep` | `#38220F` | footer |
-  | `copper` | `#8B5E34` | section headings, card titles, stat numbers |
-  | `copper-pale` | `#C89B6A` | accents on dark backgrounds |
-  | `ink` | `#2E2A26` | body text |
-  | `muted` | `#6B635C` | captions, labels, meta text |
-  | `hair` | `#E5E0DA` | card borders / hairlines |
-  | `gold` | `#D4A017` | active nav link only |
-  | `clay` | `#A8452F` | red — the "Operations" circle |
-  | `sage` | `#4F7F63` | green — the "Data" circle |
+  | `nav` | `#4A3120` | navbar strip |
+  | `banner` | `#46301F` | hero banner band (under the marbled art) |
+  | page background | `#FFFFFF` | hero lower half, Data Projects |
+  | `greige` | `#F1ECE7` | warm band — About, Skills |
+  | `grey` | `#F4F4F4` | cool band — Community Projects, Résumé |
+  | `cocoa` | `#41291A` | Contact band |
+  | `cocoa-deep` | `#33200F` | footer |
+  | `heading` | `#74533A` | section headings, card titles, stat numbers |
+  | `btn` | `#5C3317` | button fill |
+  | `ink` | `#414852` | body text (cool dark slate) |
+  | `muted` | `#6E7480` | captions, labels, meta text |
+  | `tan` | `#C9A075` | active nav link, accents on dark |
+  | `gold` | `#DFA85A` | Contact-section icons |
+  | `hair` / `line-cool` | `#E2DDD6` / `#E4E4E4` | hairlines and card borders |
 
-  Section headings are deliberately **light weight** (Questrial 400) and
-  letter-spaced rather than bold — that delicacy is what makes the theme read as
-  airy. On the dark hero, the red and green circles use lightened variants
-  (`#DD7F6B` / `#85C3A0`) so they stay legible against the coffee background.
-- **Fonts:** Headings use **Questrial** (the light geometric face that matches the
-  original Wix site); body uses **Inter**. Both load from Google Fonts in the
-  `<head>`.
+  Three details do most of the work in making this read as the Wix theme, so
+  take care if you change them:
+  1. **Section headings are thin** — Jost weight **300** at ~48px, not bold.
+  2. **Buttons have zero border-radius** — small solid brown rectangles.
+  3. **Body text is small with loose line-height** (`0.875rem` / `1.85`).
+
+  On the dark banner, the red and green circles use lightened variants
+  (`#DD7F6B` / `#85C3A0`) so they stay legible against the brown.
+- **Fonts:** Headings use **Jost** (a Futura-style geometric sans matching the
+  Wix site's thin headings); body uses **Inter**. Both load from Google Fonts in
+  the `<head>`.
+- **Hero banner art:** the brown/teal marbled banner is generated in CSS
+  (`.hero-marble` in `css/styles.css`). To use the real fluid-art image from the
+  Wix site instead, save it as **`assets/images/banner.jpg`** — it will be picked
+  up automatically and cover the CSS version. If the file isn't there, the
+  `<img>` removes itself and the CSS art shows, so nothing breaks either way.
 - **Sections/nav:** the navbar links map to section `id`s (`#about`,
   `#community-projects`, `#data-projects`, `#skills`, `#resume`, `#contact`).
+
+---
+
+## 📸 Community project photo galleries
+
+Each community project card shows a preview photo and opens a full-screen gallery
+when clicked — navigable by **swiping**, the **← / → arrow buttons**, or the
+**arrow keys**; closed with the **X**, **Esc**, or by tapping the backdrop.
+
+To add photos, drop them into the matching folder and name them in order:
+
+```
+assets/images/community_projects/
+├── grand-games/          ← Inter-Hub Grand Games & Awards Day
+│   ├── 01.jpg            ← becomes the card's preview image
+│   ├── 02.jpg
+│   └── 03.jpg            ← gallery order = filename order
+├── business-showcase/    ← ALX Business Showcase
+├── staff-hangout/        ← Hub Support Staff Hangout
+├── games-days/           ← Monthly Games Days
+└── valentines-connect/   ← Valentine's Community Connect
+```
+
+**No code editing required** — `js/gallery.js` finds the end of each set by
+loading forward until a file is missing. Empty folders are fine: those cards keep
+their flat brown header and simply aren't clickable.
+
+Full details (photo sizing, the optional `count` setting, `.png` support) are in
+`assets/images/community_projects/README.md`.
 
 ---
 

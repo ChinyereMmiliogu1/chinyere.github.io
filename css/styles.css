@@ -2,43 +2,39 @@
    Chinyere Clara Mmiliogu — Portfolio
    Custom styles layered on top of Tailwind (Play CDN).
 
-   THEME: matched to the Wix portfolio (clarammiliogu.wixsite.com)
+   THEME: reproduced from the Wix portfolio (clarammiliogu.wixsite.com)
    ------------------------------------------------------------------
-   White pages with warm light-grey bands, a dark coffee navbar/footer,
-   and delicate copper headings. Flat and airy — no glows or gradients.
-
-   Page bg       #FFFFFF  white
-   Band bg       #F4F2EF  warm light grey
-   Navbar/hero   #3E2C1C  dark coffee
-   Contact/foot  #472B15  dark brown
-   Headings      #8B5E34  copper (light weight, letter-spaced)
-   Body text     #2E2A26  warm near-black
-   Buttons       #5A3A1E  dark brown, flat
-   Nav active    #D4A017  gold
+   Hero      brown marbled banner band, WHITE below it, portrait
+             overhanging the boundary as a sharp-cornered rectangle
+   Bands     white / warm greige #F1ECE7 / cool grey #F4F4F4
+   Headings  large + LIGHT weight, warm brown #74533A (Jost 300)
+   Buttons   small solid dark-brown rectangles, ZERO radius
+   Contact   full-bleed dark brown #41291A with gold icons
    ========================================================================= */
 
 /* ---------- Base tokens ---------- */
 :root {
   --white: #FFFFFF;
-  --band: #F4F2EF;         /* alternating section background */
-  --band-warm: #EFEBE7;    /* slightly warmer greige */
-  --coffee: #3E2C1C;       /* navbar + hero banner */
-  --coffee-deep: #2E2014;
-  --cocoa: #472B15;        /* contact / footer */
-  --cocoa-deep: #38220F;
-  --copper: #8B5E34;       /* section headings & accents */
-  --copper-light: #A97C4E;
-  --copper-pale: #C89B6A;
-  --btn: #5A3A1E;          /* button fill */
-  --btn-hover: #6E4926;
-  --body: #2E2A26;         /* body copy */
-  --muted: #6B635C;
-  --line: #E5E0DA;
-  --gold: #D4A017;         /* nav active only */
-  --sage: #4F7F63;         /* "Data" green on light bg */
-  --sage-light: #85C3A0;   /* "Data" green on dark bg */
-  --clay: #A8452F;         /* "Operations" red on light bg */
-  --clay-light: #DD7F6B;   /* "Operations" red on dark bg */
+  --greige: #F1ECE7;        /* warm band (About, Skills) */
+  --grey: #F4F4F4;          /* cool band (Projects, Resume) */
+  --nav: #4A3120;           /* navbar strip */
+  --banner: #46301F;        /* banner base under the marble art */
+  --cocoa: #41291A;         /* Contact band */
+  --cocoa-deep: #33200F;    /* footer */
+  --heading: #74533A;       /* section headings */
+  --heading-soft: #8A6A4C;
+  --btn: #5C3317;           /* button fill */
+  --btn-hover: #74441F;
+  --body: #414852;          /* body copy — cool dark slate */
+  --muted: #6E7480;
+  --line: #E2DDD6;
+  --line-cool: #E4E4E4;
+  --tan: #C9A075;           /* nav active + accents on dark */
+  --gold: #DFA85A;          /* contact icons */
+  --sand: #F5EFE7;          /* nav link colour */
+  --sand-dim: #C9BCAC;
+  --sage-light: #85C3A0;    /* "Data" circle */
+  --clay-light: #DD7F6B;    /* "Operations" circle */
 
   scroll-padding-top: 64px;
 }
@@ -51,14 +47,14 @@ body {
   overflow-x: hidden;
   background: var(--white);
   color: var(--body);
-  font-size: 0.875rem;      /* small, like the Wix site */
-  line-height: 1.7;
+  font-size: 0.875rem;
+  line-height: 1.85;          /* loose, as on the Wix site */
 }
-@media (min-width: 1024px) { body { font-size: 0.925rem; } }
+@media (min-width: 1024px) { body { font-size: 0.92rem; } }
 
 img, svg, video { max-width: 100%; }
 
-::selection { background: var(--copper); color: #fff; }
+::selection { background: var(--heading); color: #fff; }
 
 * { scrollbar-width: thin; scrollbar-color: #d5cec5 transparent; }
 *::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -66,110 +62,141 @@ img, svg, video { max-width: 100%; }
 *::-webkit-scrollbar-thumb:hover { background: #bdb4a8; }
 
 /* =========================================================================
-   NAVBAR — a solid dark coffee bar, as on the Wix site
+   NAVBAR — thin dark brown strip, links right-aligned
    ========================================================================= */
-#navbar { background: var(--coffee); }
+#navbar { background: var(--nav); }
 #navbar.nav-scrolled {
-  background: rgba(62, 44, 28, 0.96);
-  backdrop-filter: saturate(160%) blur(10px);
-  -webkit-backdrop-filter: saturate(160%) blur(10px);
-  box-shadow: 0 2px 12px -6px rgba(0, 0, 0, 0.4);
+  background: rgba(74, 49, 32, 0.97);
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
 }
-#navbar .nav-brand-text { color: #F7F3ED; }
-#navbar .nav-brand-sub  { color: #B9A891; }
+.nav-brand-text { color: #FBF7F2; letter-spacing: 0.03em; }
+.nav-brand-sub  { color: var(--sand-dim); }
 
 .nav-link {
   display: inline-block;
-  padding: 0.4rem 0.7rem;
-  font-size: 0.78rem;
+  padding: 0.4rem 0.55rem;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
-  color: #EFE8DE;
-  border-radius: 3px;
-  transition: color .2s ease, background-color .2s ease;
+  color: var(--sand);
+  transition: color .2s ease;
 }
-.nav-link:hover { color: var(--gold); background: rgba(255, 255, 255, 0.06); }
-.nav-link.is-active { color: var(--gold); background: transparent; }
+.nav-link:hover { color: var(--tan); }
+.nav-link.is-active { color: var(--tan); }
 
-.nav-toggle-btn { color: #F7F3ED; background: rgba(255, 255, 255, 0.08); }
+.nav-toggle-btn { color: var(--sand); }
 
-/* Mobile menu — same dark bar treatment */
+/* Mobile menu */
 .mobile-link {
   display: block;
-  padding: 0.8rem 0.9rem;
+  padding: 0.8rem 0.6rem;
   min-height: 44px;
-  border-radius: 3px;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.98rem;
   font-weight: 400;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  color: #EFE8DE;
-  transition: background-color .15s ease, color .15s ease;
+  color: var(--sand);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: color .15s ease;
 }
-.mobile-link:hover, .mobile-link.is-active {
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--gold);
-}
+.mobile-link:hover, .mobile-link.is-active { color: var(--tan); }
 
 /* =========================================================================
-   HERO — dark coffee banner
+   HERO — brown banner band on top, white below
    ========================================================================= */
-#home { background: var(--coffee); }
-.hero-bg {
+
+/* ---- The brown band ---- */
+.hero-band {
+  position: relative;
+  background: var(--banner);
+  /* NOT overflow:hidden — the portrait deliberately hangs past the bottom edge.
+     The art layers are inset:0 absolute, so they stay inside regardless. */
+}
+
+/* Marbled brown / teal / copper fluid art, built from layered gradients.
+   Drop a real banner at assets/images/banner.jpg and it covers this. */
+.hero-marble {
   position: absolute;
   inset: 0;
-  /* very faint warm texture, nothing loud */
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 240, 220, 0.05) 1px, transparent 0);
-  background-size: 30px 30px;
-  mask-image: linear-gradient(to bottom, black, transparent 92%);
-  -webkit-mask-image: linear-gradient(to bottom, black, transparent 92%);
   pointer-events: none;
+  background-color: #46301F;
+  background-image:
+    radial-gradient(60% 90% at 12% 55%, rgba(23, 78, 82, 0.85) 0%, rgba(23, 78, 82, 0) 60%),
+    radial-gradient(38% 70% at 30% 30%, rgba(17, 60, 66, 0.6) 0%, rgba(17, 60, 66, 0) 65%),
+    radial-gradient(30% 55% at 52% 78%, rgba(200, 150, 96, 0.35) 0%, rgba(200, 150, 96, 0) 70%),
+    radial-gradient(28% 48% at 68% 22%, rgba(214, 172, 122, 0.3) 0%, rgba(214, 172, 122, 0) 70%),
+    radial-gradient(22% 40% at 84% 62%, rgba(160, 112, 68, 0.45) 0%, rgba(160, 112, 68, 0) 72%),
+    radial-gradient(circle at 46% 50%, rgba(255, 236, 210, 0.09) 0%, rgba(255, 236, 210, 0) 38%),
+    linear-gradient(115deg, #2E2013 0%, #4E3421 40%, #6B4526 70%, #3C2818 100%);
 }
-.hero-name { color: #FFFFFF; }
-.hero-surname { color: var(--copper-pale); }
-
-/* Hero image — blends into the coffee banner */
-.hero-figure { position: relative; }
-.hero-figure::before {
+/* Faint bubble speckle, echoing the fluid-art texture */
+.hero-marble::after {
   content: "";
   position: absolute;
-  inset: -5%;
-  border-radius: 9999px;
-  background: radial-gradient(circle, rgba(120, 82, 46, 0.35) 0%, rgba(120, 82, 46, 0) 70%);
-  z-index: 0;
-  pointer-events: none;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 240, 220, 0.16) 2.5px, transparent 3px),
+    radial-gradient(circle at 70% 65%, rgba(255, 240, 220, 0.13) 3px, transparent 3.5px),
+    radial-gradient(circle at 45% 80%, rgba(255, 240, 220, 0.1) 2px, transparent 2.5px);
+  background-size: 120px 110px, 170px 150px, 90px 95px;
+  opacity: 0.75;
 }
+.hero-band-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.hero-band > .hero-band-inner { position: relative; z-index: 2; }
+
+/* ---- Portrait: sharp-cornered rectangle, overhangs the band on desktop ---- */
+.hero-figure { position: relative; z-index: 3; margin: 0; }
 .hero-image-wrap {
   position: relative;
-  z-index: 1;
   aspect-ratio: 4 / 5;
-  border-radius: 4px;              /* flat, squared — like the Wix banner photo */
   overflow: hidden;
-  box-shadow: 0 14px 36px -20px rgba(0, 0, 0, 0.6);
+  border-radius: 0;                  /* sharp corners, as on the Wix site */
+  background: var(--banner);
 }
 .hero-image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center 20%;
 }
-.hero-image-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(115% 100% at 50% 45%, rgba(46, 32, 20, 0) 60%, rgba(46, 32, 20, 0.4) 100%);
-}
-.hero-image-fallback { background: var(--coffee-deep); }
+.hero-image-fallback { background: #2E2013; }
 .hero-image-fallback::after {
   content: "CM";
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
-  font-family: 'Questrial', 'Montserrat', sans-serif;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;
   font-size: 3rem;
-  color: var(--copper-pale);
+  color: var(--tan);
+}
+/* On desktop the photo hangs past the band's bottom edge into the white area */
+@media (min-width: 1024px) {
+  .hero-figure { margin-bottom: -110px; }
+}
+
+/* ---- Name + role ---- */
+.hero-name {
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 600;                  /* the name IS bold — headings elsewhere are not */
+  color: #FFFFFF;
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+}
+.hero-role {
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;                  /* light, like "Data Analyst" */
+  color: #F2E9DE;
+  line-height: 1.4;
 }
 
 /* ---- The three fine circles under the name ---- */
@@ -177,7 +204,7 @@ img, svg, video { max-width: 100%; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   padding: 0;
   list-style: none;
 }
@@ -190,24 +217,34 @@ img, svg, video { max-width: 100%; }
   place-items: center;
   text-align: center;
   padding: 0.25rem;
-  font-family: 'Questrial', 'Montserrat', sans-serif;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 400;
   font-size: 0.58rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   line-height: 1.2;
-  border: 1px solid currentColor;   /* "fine" hairline ring */
+  border: 1px solid currentColor;    /* "fine" hairline ring */
   transition: background-color .2s ease, transform .2s ease;
 }
-.hero-circle:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-2px); }
+.hero-circle:hover { background: rgba(255, 255, 255, 0.07); transform: translateY(-2px); }
 @media (min-width: 400px)  { .hero-circle { width: 78px; height: 78px; font-size: 0.61rem; } }
-@media (min-width: 1024px) { .hero-circles { gap: 0.65rem; margin-top: 1.2rem; }
+@media (min-width: 1024px) { .hero-circles { gap: 0.65rem; }
                              .hero-circle { width: 86px; height: 86px; font-size: 0.65rem; } }
 .hero-circle--community  { color: #FFFFFF; }
 .hero-circle--data       { color: var(--sage-light); }
 .hero-circle--operations { color: var(--clay-light); }
 
+/* ---- White area below the band ---- */
+.hero-welcome {
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #2F3640;
+  margin-bottom: 0.6rem;
+}
+
 /* =========================================================================
-   BUTTONS — small, flat rectangles
+   BUTTONS — small solid rectangles, ZERO radius
    ========================================================================= */
 .btn-primary,
 .btn-ghost,
@@ -216,100 +253,99 @@ img, svg, video { max-width: 100%; }
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  border-radius: 3px;
-  padding: 0.6rem 1.15rem;
+  border-radius: 0;
+  padding: 0.68rem 1.35rem;
   min-height: 42px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }
 .btn-primary { background: var(--btn); color: #fff; }
 .btn-primary:hover { background: var(--btn-hover); }
 
+/* Outlined, on light backgrounds — thin grey border, brown letter-spaced text */
+.btn-outline {
+  background: transparent;
+  color: var(--heading);
+  border: 1px solid #D8D4CE;
+  letter-spacing: 0.09em;
+}
+.btn-outline:hover { border-color: var(--heading); background: rgba(116, 83, 58, 0.05); }
+
+/* Outlined, on dark backgrounds — thin cream border, like the Wix Submit button */
 .btn-ghost {
   background: transparent;
-  color: #F3EDE4;
-  border: 1px solid rgba(240, 230, 214, 0.45);
+  color: #FBF7F2;
+  border: 1px solid rgba(251, 247, 242, 0.55);
+  letter-spacing: 0.05em;
 }
-.btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: #F3EDE4; }
-
-.btn-outline {
-  background: #fff;
-  color: var(--copper);
-  border: 1px solid var(--copper);
-}
-.btn-outline:hover { background: var(--copper); color: #fff; }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.09); border-color: #FBF7F2; }
 
 /* =========================================================================
-   SECTION HEADINGS — copper, light weight, letter-spaced
+   SECTION HEADINGS — large, LIGHT weight, warm brown
    ========================================================================= */
 .section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-size: 0.64rem;
-  letter-spacing: 0.18em;
+  display: inline-block;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 400;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.section-eyebrow::before {
-  content: "";
-  width: 20px;
-  height: 1px;
-  background: var(--copper-light);
-}
-.section-eyebrow--light { color: #B9A891; }
+.section-eyebrow--light { color: var(--sand-dim); }
 
 .section-title {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-weight: 400;                  /* light, not bold */
-  color: var(--copper);
-  letter-spacing: 0.015em;
-  font-size: clamp(1.4rem, 4.2vw, 2rem);
-  line-height: 1.25;
-  margin-top: 0.5rem;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;                        /* the defining detail: thin, not bold */
+  color: var(--heading);
+  letter-spacing: 0.012em;
+  font-size: clamp(1.85rem, 5.5vw, 3rem);
+  line-height: 1.18;
+  margin-top: 0.35rem;
 }
 .section-lead {
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   color: var(--body);
-  font-size: clamp(0.82rem, 2.2vw, 0.9rem);
-  line-height: 1.75;
-  max-width: 40rem;
+  font-size: clamp(0.82rem, 2.2vw, 0.92rem);
+  line-height: 1.9;
+  max-width: 44rem;
 }
 
-/* Variants for headings that sit on the dark brown Contact band */
+/* Variants for the dark brown Contact band */
 .section-title--light { color: #FFFFFF; }
-.section-lead--light  { color: #C6B5A1; }
+.section-lead--light  { color: #E3D8CA; }
 
 /* =========================================================================
-   IMPACT STATS — flat, bordered
+   IMPACT STATS — hairline dividers, no boxes
    ========================================================================= */
 .stat-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0.95rem 0.7rem;
+  padding: 0.9rem 0.6rem;
   text-align: center;
-  transition: border-color .2s ease;
+  border-bottom: 1px solid var(--line);
 }
-@media (min-width: 640px) { .stat-card { padding: 1.2rem 1rem; } }
-.stat-card:hover { border-color: var(--copper-light); }
+@media (min-width: 1024px) {
+  .stat-card { border-bottom: 0; border-left: 1px solid var(--line); padding: 0.4rem 1rem; text-align: left; }
+  .stat-card:first-child { border-left: 0; padding-left: 0; }
+}
 .stat-number {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
   line-height: 1;
-  color: var(--copper);
+  color: var(--heading);
 }
 .stat-label {
-  margin-top: 0.4rem;
-  font-size: 0.68rem;
+  margin-top: 0.45rem;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
   color: var(--muted);
-  line-height: 1.4;
-  letter-spacing: 0.01em;
+  line-height: 1.45;
 }
-@media (min-width: 640px) { .stat-label { font-size: 0.73rem; } }
 
 /* =========================================================================
    ABOUT
@@ -321,199 +357,256 @@ img, svg, video { max-width: 100%; }
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  color: var(--copper-pale);
+  font-weight: 300;
+  color: var(--tan);
 }
-.portrait-fallback { background: var(--coffee); position: relative; }
+.portrait-fallback { background: var(--banner); position: relative; }
 .portrait-fallback .portrait-initials { display: flex; z-index: 1; }
 
 .focus-card {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 4px;
-  background: #fff;
-  border: 1px solid var(--line);
-  transition: border-color .2s ease;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(116, 83, 58, 0.14);
 }
-.focus-card:hover { border-color: var(--copper-light); }
 .focus-icon {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 4px;
-  background: var(--band-warm);
-  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.05rem;
 }
 .focus-title {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  color: var(--copper);
-  letter-spacing: 0.01em;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--heading);
+  letter-spacing: 0.015em;
+  line-height: 1.35;
 }
-.focus-sub { font-size: 0.74rem; color: var(--muted); line-height: 1.45; }
+.focus-sub { font-size: 0.74rem; color: var(--muted); line-height: 1.5; }
 
 /* =========================================================================
-   PROJECT CARDS — flat with muted brown headers
+   PROJECT CARDS — flat, white, hairline borders
    ========================================================================= */
 .project-card {
   background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
+  border: 1px solid var(--line-cool);
+  border-radius: 0;
   overflow: hidden;
-  transition: border-color .2s ease, box-shadow .2s ease;
+  transition: border-color .2s ease;
 }
-.project-card:hover {
-  border-color: var(--copper-light);
-  box-shadow: 0 8px 22px -18px rgba(46, 32, 20, 0.4);
-}
+.project-card:hover { border-color: var(--heading-soft); }
+/* The whole card opens the photo gallery once photos exist for it. */
+.project-card[data-gallery] { cursor: pointer; }
+.project-card[data-gallery]:has(.project-media[aria-disabled="true"]) { cursor: default; }
+
+/* .project-media is a <button> — reset the UA styling it brings with it. */
 .project-media {
   position: relative;
-  min-height: 100px;
+  width: 100%;
+  min-height: 96px;
   display: flex;
   align-items: flex-end;
-  padding: 0.8rem 0.95rem;
+  padding: 0.8rem 1rem;
   color: #fff;
   overflow: hidden;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: filter .25s ease;
 }
-@media (min-width: 640px) { .project-media { min-height: 124px; padding: 1rem 1.15rem; } }
-/* All in the brown family — subdued, no loud gradients */
-.project-media--1 { background: #3E2C1C; }
-.project-media--2 { background: #6B4520; }
-.project-media--3 { background: #4E3220; }
-.project-media--4 { background: #5A3A1E; }
-.project-media--5 { background: #472B15; }
+@media (min-width: 640px) { .project-media { min-height: 118px; padding: 1rem 1.2rem; } }
+.project-media[aria-disabled="true"] { cursor: default; }
+.project-media:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
+
+/* ---------- Preview photo (01.jpg), swapped in by js/gallery.js ---------- */
+.project-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.project-media.has-preview { min-height: 190px; align-items: flex-end; }
+@media (min-width: 640px) { .project-media.has-preview { min-height: 215px; } }
+.project-media--5.has-preview { min-height: 190px; }
+/* Scrim so the white tag text stays readable over any photo.
+   z-index 1 puts it above the photo (0); the tag + badge sit at 2. */
+.project-media.has-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(46, 32, 19, .78) 0%, rgba(46, 32, 19, .28) 45%, rgba(46, 32, 19, .05) 100%);
+}
+.project-media.has-preview .project-tag { z-index: 2; }
+/* The emoji is a stand-in for a photo — retire it once a real one arrives. */
+.project-media.has-preview .project-emoji { display: none; }
+.project-card:hover .project-media.has-preview .project-preview,
+.project-media:focus-visible .project-preview { filter: brightness(1.06); }
+
+.project-photo-count {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.7rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.55rem;
+  background: rgba(38, 24, 12, .62);
+  border: 1px solid rgba(255, 255, 255, .28);
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.project-photo-count::before { content: "⧉"; font-size: 0.78rem; line-height: 1; }
+/* All in the brown family, subdued */
+.project-media--1 { background: #46301F; }
+.project-media--2 { background: #6B4526; }
+.project-media--3 { background: #4E3421; }
+.project-media--4 { background: #5C3317; }
+.project-media--5 { background: #3C2818; }
 .project-tag {
   position: relative;
   z-index: 1;
   display: inline-block;
-  padding: 0.22rem 0.6rem;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.62rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.64rem;
   font-weight: 400;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-@media (min-width: 640px) { .project-tag { font-size: 0.66rem; } }
 .project-emoji {
   position: absolute;
   top: 0.65rem;
-  right: 0.85rem;
+  right: 0.9rem;
   font-size: 1.5rem;
-  opacity: 0.9;
+  opacity: 0.85;
   z-index: 1;
 }
-@media (min-width: 640px) { .project-emoji { font-size: 1.85rem; } }
+@media (min-width: 640px) { .project-emoji { font-size: 1.8rem; } }
 
-.project-body { padding: 1rem 1rem 1.25rem; }
-@media (min-width: 640px) { .project-body { padding: 1.25rem 1.25rem 1.5rem; } }
+.project-body { padding: 1.1rem 1.1rem 1.35rem; }
+@media (min-width: 640px) { .project-body { padding: 1.4rem 1.4rem 1.6rem; } }
 
 .project-meta {
-  font-size: 0.63rem;
-  letter-spacing: 0.07em;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.6;
 }
-@media (min-width: 640px) { .project-meta { font-size: 0.67rem; } }
 
 .project-title {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
+  font-family: 'Jost', 'Questrial', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
-  color: var(--copper);
-  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin-top: 0.4rem;
   line-height: 1.35;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
 }
-@media (min-width: 640px) { .project-title { font-size: 1.08rem; } }
+@media (min-width: 640px) { .project-title { font-size: 1.2rem; } }
 
 .project-desc {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   color: var(--body);
-  line-height: 1.7;
-  font-size: 0.81rem;
+  line-height: 1.85;
+  font-size: 0.82rem;
 }
-@media (min-width: 640px) { .project-desc { font-size: 0.85rem; } }
+@media (min-width: 640px) { .project-desc { font-size: 0.86rem; } }
 
 .project-section-label {
-  margin-top: 0.9rem;
-  margin-bottom: 0.45rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.11em;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-/* Chips — flat, quiet */
+/* Chips — flat, square, quiet */
 .chip-row { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .chip {
   display: inline-block;
   padding: 0.22rem 0.55rem;
-  border-radius: 2px;
-  background: var(--band);
-  border: 1px solid var(--line);
-  color: #5A5049;
-  font-size: 0.67rem;
+  border-radius: 0;
+  border: 1px solid var(--line-cool);
+  color: #5D646E;
+  font-size: 0.69rem;
   line-height: 1.5;
 }
-@media (min-width: 640px) { .chip { font-size: 0.71rem; } }
-.chip--green { background: #EDF3EF; border-color: #DCE7E0; color: var(--sage); }
+@media (min-width: 640px) { .chip { font-size: 0.72rem; } }
+.chip--green { border-color: #DCE7E0; background: #F3F7F4; color: #4F7F63; }
 
 /* Metrics row */
 .project-metrics {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem 1.3rem;
-  margin-top: 1rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--line);
+  gap: 0.9rem 1.5rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-cool);
 }
 .project-metrics > div { display: flex; flex-direction: column; }
 .metric-num {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-size: 1.05rem;
-  color: var(--copper);
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: var(--heading);
   line-height: 1;
 }
-@media (min-width: 640px) { .metric-num { font-size: 1.15rem; } }
-.metric-cap { margin-top: 0.2rem; font-size: 0.65rem; color: var(--muted); }
+.metric-cap {
+  margin-top: 0.3rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 /* =========================================================================
    DATA CARDS
    ========================================================================= */
 .data-card {
   background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 1.05rem;
-  transition: border-color .2s ease, box-shadow .2s ease;
+  border: 1px solid var(--line-cool);
+  border-radius: 0;
+  padding: 1.15rem;
+  transition: border-color .2s ease;
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 640px) { .data-card { padding: 1.3rem; } }
-.data-card:hover {
-  border-color: var(--copper-light);
-  box-shadow: 0 8px 22px -18px rgba(46, 32, 20, 0.4);
-}
+@media (min-width: 640px) { .data-card { padding: 1.4rem; } }
+.data-card:hover { border-color: var(--heading-soft); }
 .data-card-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.6rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.85rem;
 }
 .data-icon {
   display: grid;
   place-items: center;
   width: 2.3rem;
   height: 2.3rem;
-  border-radius: 4px;
-  background: var(--coffee);
+  background: var(--banner);
   font-size: 1.05rem;
   flex-shrink: 0;
 }
@@ -521,77 +614,71 @@ img, svg, video { max-width: 100%; }
 .tool-chip {
   display: inline-block;
   padding: 0.2rem 0.5rem;
-  border-radius: 2px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-cool);
   color: var(--muted);
-  font-size: 0.62rem;
-  letter-spacing: 0.02em;
+  font-size: 0.63rem;
+  letter-spacing: 0.04em;
 }
-.data-block { margin-top: 0.75rem; }
+.data-block { margin-top: 0.8rem; }
 .data-label {
-  font-size: 0.6rem;
-  letter-spacing: 0.11em;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 0.28rem;
+  margin-bottom: 0.3rem;
 }
-.data-text { color: var(--body); line-height: 1.65; font-size: 0.81rem; }
+.data-text { color: var(--body); line-height: 1.8; font-size: 0.82rem; }
 .data-outputs {
-  margin-top: 0.95rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--line);
-  font-size: 0.7rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line-cool);
+  font-size: 0.71rem;
   color: var(--muted);
   font-style: italic;
 }
 
 /* =========================================================================
-   SKILLS — light cards on a white section
+   SKILLS
    ========================================================================= */
 .skill-group {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 1.1rem;
-  transition: border-color .2s ease;
+  background: transparent;
+  border-top: 1px solid rgba(116, 83, 58, 0.18);
+  padding: 1.1rem 0 0;
 }
-@media (min-width: 640px) { .skill-group { padding: 1.35rem; } }
-.skill-group:hover { border-color: var(--copper-light); }
-.skill-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
+.skill-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
 .skill-head-icon {
   display: grid;
   place-items: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 4px;
-  background: var(--band-warm);
-  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.05rem;
   flex-shrink: 0;
 }
 .skill-head-title {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 1.05rem;
-  color: var(--copper);
-  letter-spacing: 0.02em;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--heading);
+  letter-spacing: 0.025em;
 }
-.skill-list { display: flex; flex-direction: column; gap: 0.4rem; }
+.skill-list { display: flex; flex-direction: column; gap: 0.45rem; }
 .skill-list li {
   position: relative;
   padding-left: 1.1rem;
   color: var(--body);
-  font-size: 0.81rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
 }
-@media (min-width: 640px) { .skill-list li { font-size: 0.85rem; } }
+@media (min-width: 640px) { .skill-list li { font-size: 0.86rem; } }
 .skill-list li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.55rem;
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 9999px;
-  background: var(--copper-light);
+  top: 0.62rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: var(--heading-soft);
 }
 
 /* =========================================================================
@@ -599,70 +686,57 @@ img, svg, video { max-width: 100%; }
    ========================================================================= */
 .resume-highlight {
   display: flex;
-  gap: 0.7rem;
+  gap: 0.8rem;
   align-items: flex-start;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0.8rem 0.95rem;
-  transition: border-color .2s ease;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--line-cool);
 }
-.resume-highlight:hover { border-color: var(--copper-light); }
 .resume-dot {
   flex-shrink: 0;
-  margin-top: 0.4rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 9999px;
-  background: var(--copper-light);
+  margin-top: 0.55rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  background: var(--heading-soft);
 }
 .resume-title {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  color: var(--copper);
-  letter-spacing: 0.01em;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--heading);
+  letter-spacing: 0.015em;
+  line-height: 1.4;
 }
-.resume-sub { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+.resume-sub { font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
 
 /* =========================================================================
-   CONTACT — dark brown band, as on the Wix site
+   CONTACT — dark brown band, gold icons, cream hairlines
    ========================================================================= */
 .contact-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.2rem;
-  padding: 1.25rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(240, 230, 214, 0.22);
-  border-radius: 4px;
-  transition: background-color .2s ease, border-color .2s ease;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.05rem 0;
+  border-top: 1px solid rgba(251, 247, 242, 0.2);
+  transition: border-color .2s ease;
 }
-@media (min-width: 640px) { .contact-card { padding: 1.6rem 1.15rem; } }
-.contact-card:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: var(--copper-pale);
-}
+.contact-card:hover { border-color: var(--gold); }
 .contact-icon {
-  font-size: 1.25rem;
-  margin-bottom: 0.35rem;
-  display: grid;
-  place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--gold);
 }
 .contact-label {
-  font-family: 'Questrial', 'Montserrat', sans-serif;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 400;
   color: #FFFFFF;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   letter-spacing: 0.02em;
 }
 .contact-value {
-  color: #C6B5A1;
-  font-size: 0.75rem;
+  color: #D8C9B6;
+  font-size: 0.78rem;
+  line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
@@ -670,12 +744,13 @@ img, svg, video { max-width: 100%; }
    FOOTER
    ========================================================================= */
 .footer-link {
-  color: #C6B5A1;
-  font-size: 0.78rem;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  color: var(--sand-dim);
+  font-size: 0.82rem;
   letter-spacing: 0.02em;
   transition: color .15s ease;
 }
-.footer-link:hover { color: var(--gold); }
+.footer-link:hover { color: var(--tan); }
 
 /* =========================================================================
    BACK TO TOP
@@ -689,7 +764,7 @@ img, svg, video { max-width: 100%; }
   place-items: center;
   width: 2.6rem;
   height: 2.6rem;
-  border-radius: 3px;
+  border-radius: 0;
   background: var(--btn);
   color: #fff;
   opacity: 0;
@@ -716,6 +791,168 @@ img, svg, video { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .animate-pulse { animation: none !important; }
   * { transition-duration: 0.01ms !important; }
+}
+
+/* =========================================================================
+   PHOTO LIGHTBOX — community project galleries
+   Flat, square-cornered, deep brown: same language as the rest of the theme.
+   ========================================================================= */
+body.lb-open { overflow: hidden; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;              /* above the navbar (50) and back-to-top (40) */
+  display: flex;
+}
+.lightbox[hidden] { display: none; }
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 19, 9, 0.96);
+}
+
+.lightbox-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 0.6rem 0.4rem;
+}
+@media (min-width: 640px) { .lightbox-shell { padding: 1rem 1.25rem 0.6rem; } }
+
+/* ---------- Top bar: title · counter · close ---------- */
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.lightbox-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  letter-spacing: 0.015em;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (min-width: 640px) { .lightbox-title { font-size: 1.1rem; } }
+.lightbox-counter {
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--sand-dim);
+  font-variant-numeric: tabular-nums;
+}
+.lightbox-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.6); }
+
+/* ---------- Stage: the photo + arrow buttons ---------- */
+.lightbox-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0;
+  touch-action: pan-y;      /* let the browser keep vertical gestures */
+}
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* Small inset on phones so the arrow buttons never sit on top of faces */
+  padding: 0 2.9rem;
+  box-sizing: border-box;
+}
+@media (min-width: 900px) { .lightbox-img { padding: 0 4.5rem; } }
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(30, 19, 9, 0.55);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease, opacity .2s ease, border-color .2s ease;
+}
+@media (min-width: 640px) { .lightbox-nav { width: 52px; height: 52px; } }
+.lightbox-prev { left: 0; }
+.lightbox-next { right: 0; }
+.lightbox-nav:hover:not(:disabled) { background: rgba(92, 51, 23, 0.9); border-color: rgba(255, 255, 255, 0.55); }
+.lightbox-nav:disabled { opacity: 0.22; cursor: default; }
+
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible,
+.lightbox-dot:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Dots + hint ---------- */
+.lightbox-dots {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0 0.15rem;
+}
+.lightbox-dots[hidden] { display: none; }
+.lightbox-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.lightbox-dot:hover { background: rgba(255, 255, 255, 0.55); }
+.lightbox-dot.is-active { background: var(--gold); transform: scale(1.35); }
+
+.lightbox-hint {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.35rem 0 0.15rem;
+  text-align: center;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(201, 188, 172, 0.65);
 }
