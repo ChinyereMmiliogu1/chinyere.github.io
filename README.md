@@ -108,23 +108,34 @@ Or use the **VS Code "Live Server"** extension → right-click `index.html` →
 - **Text & projects:** everything lives in `index.html` in clearly commented
   sections (`<!-- ===== COMMUNITY PROJECTS ===== -->`, etc.). Edit the text
   directly.
-- **Colours:** the **Espresso & Gold** palette is defined once in the
-  `tailwind.config` block near the top of `index.html` and mirrored as CSS
-  variables in `:root` at the top of `css/styles.css`:
+- **Colours:** the palette is a reproduction of the original Wix portfolio theme —
+  white-dominant, flat, and understated. It's defined once in the `tailwind.config`
+  block near the top of `index.html` and mirrored as CSS variables in `:root` at the
+  top of `css/styles.css`:
+
   | Token | Hex | Used for |
   |---|---|---|
-  | `cream` | `#FBF6EC` | page background |
-  | `espresso` | `#2C1B10` | hero & footer background (blends with the hero photo) |
-  | `ink` | `#24170F` | headings |
-  | body text | `#574636` | paragraphs |
-  | `gold` | `#C39A3B` | primary accent, buttons, stats |
-  | `clay` | `#A83A2B` | red — the "Operations" circle |
-  | `sage` | `#3F7A5A` | green — the "Data" circle |
+  | page background | `#FFFFFF` | most sections |
+  | `band` | `#F4F2EF` | alternating light-grey section bands (Data, Résumé) |
+  | `band-warm` | `#EFEBE7` | the About section band |
+  | `coffee` | `#3E2C1C` | navbar bar + hero banner |
+  | `cocoa` | `#472B15` | Contact band |
+  | `cocoa-deep` | `#38220F` | footer |
+  | `copper` | `#8B5E34` | section headings, card titles, stat numbers |
+  | `copper-pale` | `#C89B6A` | accents on dark backgrounds |
+  | `ink` | `#2E2A26` | body text |
+  | `muted` | `#6B635C` | captions, labels, meta text |
+  | `hair` | `#E5E0DA` | card borders / hairlines |
+  | `gold` | `#D4A017` | active nav link only |
+  | `clay` | `#A8452F` | red — the "Operations" circle |
+  | `sage` | `#4F7F63` | green — the "Data" circle |
 
-  On the dark hero, the red and green circles use lightened variants
-  (`#E4715C` / `#7CC49B`) so they stay legible against the espresso background.
-- **Fonts:** Headings use **Montserrat**; body uses **Inter** (a clean,
-  Aptos/Calibri-style humanist sans). Both load from Google Fonts in the
+  Section headings are deliberately **light weight** (Questrial 400) and
+  letter-spaced rather than bold — that delicacy is what makes the theme read as
+  airy. On the dark hero, the red and green circles use lightened variants
+  (`#DD7F6B` / `#85C3A0`) so they stay legible against the coffee background.
+- **Fonts:** Headings use **Questrial** (the light geometric face that matches the
+  original Wix site); body uses **Inter**. Both load from Google Fonts in the
   `<head>`.
 - **Sections/nav:** the navbar links map to section `id`s (`#about`,
   `#community-projects`, `#data-projects`, `#skills`, `#resume`, `#contact`).

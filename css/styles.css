@@ -279,6 +279,10 @@ img, svg, video { max-width: 100%; }
   max-width: 40rem;
 }
 
+/* Variants for headings that sit on the dark brown Contact band */
+.section-title--light { color: #FFFFFF; }
+.section-lead--light  { color: #C6B5A1; }
+
 /* =========================================================================
    IMPACT STATS — flat, bordered
    ========================================================================= */

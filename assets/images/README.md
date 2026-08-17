@@ -6,21 +6,27 @@ Drop your photos here and the site will pick them up.
 
 | File name        | Used for                          | Notes                                                        |
 |------------------|-----------------------------------|--------------------------------------------------------------|
+| `hero.jpg`       | Hero banner photo (left side)     | Portrait orientation (4:5), e.g. 800 × 1000 px.              |
 | `portrait.jpg`   | About-section profile photo       | Portrait orientation (4:5) looks best, e.g. 800 × 1000 px.   |
 
-If `portrait.jpg` is missing, the About section automatically shows a navy
-placeholder with the initials "CM" — so the site never looks broken.
+If either file is missing, the site automatically shows a dark coffee-brown
+placeholder with the initials "CM" — so it never looks broken.
+
+> ⚠️ **Windows tip:** File Explorer hides known extensions, so saving a file as
+> `hero.jpg` can silently produce `hero.jpg.jpg`. If a photo doesn't appear, turn on
+> *View → Show → File name extensions* and check for a doubled extension.
 
 ## Adding event photos to projects (optional)
 
-The project cards currently use coloured gradient headers with an emoji. To use
-real event photos instead, open `index.html`, find the relevant
-`<div class="project-media ...">` block, and replace it with an image, e.g.:
+The `community_projects/` and `data_projects/` folders are ready for your photos.
+Project cards currently use flat brown headers with an emoji. To use a real photo
+instead, open `index.html`, find the relevant `<div class="project-media ...">`
+block, and replace it with an image, e.g.:
 
 ```html
 <div class="project-media" style="padding:0; min-height:180px;">
-  <img src="assets/images/grand-games.jpg" alt="Inter-Hub Grand Games" class="w-full h-full object-cover" />
-  <span class="project-tag" style="position:absolute; bottom:1.1rem; left:1.25rem;">Lead Coordinator</span>
+  <img src="assets/images/community_projects/grand-games.jpg" alt="Inter-Hub Grand Games" class="w-full h-full object-cover" />
+  <span class="project-tag" style="position:absolute; bottom:0.95rem; left:1.15rem;">Lead Coordinator</span>
 </div>
 ```
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#2C1B10" />
+  <meta name="theme-color" content="#3E2C1C" />
   <title>Chinyere Clara Mmiliogu — Community. Operations. Data. Impact.</title>
   <meta name="description" content="Portfolio of Chinyere Clara Mmiliogu — a Community Operations and Data Analytics professional building engaging community experiences and using data to improve operations and impact." />
   <meta name="author" content="Chinyere Clara Mmiliogu" />
@@ -14,40 +14,41 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/hero.jpg" />
 
-  <!-- Favicon (espresso circle, gold initials) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%232C1B10'/%3E%3Ctext x='50' y='67' font-family='Montserrat,Arial,sans-serif' font-size='42' font-weight='700' fill='%23C39A3B' text-anchor='middle'%3ECM%3C/text%3E%3C/svg%3E" />
+  <!-- Favicon (coffee circle, copper initials) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233E2C1C'/%3E%3Ctext x='50' y='66' font-family='Questrial,Montserrat,Arial,sans-serif' font-size='40' fill='%23C89B6A' text-anchor='middle'%3ECM%3C/text%3E%3C/svg%3E" />
 
-  <!-- Fonts: Montserrat (headings) + Inter (body) -->
+  <!-- Fonts: Questrial (headings — the light geometric face used on the Wix site) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Montserrat:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS (Play CDN — zero build step, works directly on GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    /* THEME: Espresso & Gold
-       espresso = warm dark browns · cream = page background
-       gold = primary accent · clay = red (Operations) · sage = green (Data) */
+    /* THEME — matched to the Wix portfolio (clarammiliogu.wixsite.com)
+       White pages + warm light-grey bands · dark coffee navbar/footer
+       copper section headings · flat, airy, understated */
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            espresso: {
-              50: '#F7F1E8', 100: '#EADFCB', 200: '#D6C3A3', 300: '#B79A6F',
-              400: '#8A6420', 500: '#6B4520', 600: '#452A18',
-              DEFAULT: '#2C1B10', 700: '#2C1B10', 800: '#24160D', 900: '#1D1109',
+            coffee: {
+              DEFAULT: '#3E2C1C', 500: '#5A3A1E', 600: '#4E3220',
+              700: '#3E2C1C', 800: '#2E2014', 900: '#241809',
             },
-            cream: { DEFAULT: '#FBF6EC', 100: '#FBF6EC', 200: '#F5EDDF', 300: '#EADFCB' },
-            gold: {
-              light: '#E3C578', DEFAULT: '#C39A3B', 400: '#D4AC50',
-              500: '#C39A3B', 600: '#A87F27', 700: '#8A6420',
-            },
-            clay: { light: '#E4715C', DEFAULT: '#A83A2B', 600: '#8F2F22' },
-            sage: { light: '#7CC49B', DEFAULT: '#3F7A5A', 600: '#2F6349' },
-            ink: '#24170F',
+            cocoa: { DEFAULT: '#472B15', deep: '#38220F' },
+            copper: { DEFAULT: '#8B5E34', light: '#A97C4E', pale: '#C89B6A', dark: '#70492A' },
+            band: { DEFAULT: '#F4F2EF', warm: '#EFEBE7' },
+            sand: { 100: '#F7F3ED', 200: '#E7DED2', 300: '#C6B5A1', 400: '#B9A891' },
+            hair: '#E5E0DA',
+            ink: '#2E2A26',
+            muted: '#6B635C',
+            gold: '#D4A017',
+            clay: { light: '#DD7F6B', DEFAULT: '#A8452F' },
+            sage: { light: '#85C3A0', DEFAULT: '#4F7F63' },
           },
           fontFamily: {
-            heading: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            heading: ['Questrial', 'Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
             body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
           },
         },
@@ -58,20 +59,20 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body class="font-body bg-cream text-espresso-700 antialiased">
+<body class="font-body bg-white text-ink antialiased">
 
   <!-- Skip link for accessibility -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-espresso focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-coffee focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
 
   <!-- ============================ NAVBAR ============================ -->
   <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[64px] lg:h-[72px]">
       <!-- Brand -->
       <a href="#home" class="flex items-center gap-2.5 group" aria-label="Home">
-        <span class="grid place-items-center w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-espresso text-gold font-heading font-extrabold text-base shadow-md group-hover:scale-105 transition-transform shrink-0">CM</span>
+        <span class="grid place-items-center w-9 h-9 lg:w-10 lg:h-10 rounded-full border border-copper-pale/50 text-copper-pale font-heading text-base group-hover:border-gold group-hover:text-gold transition-colors shrink-0">CM</span>
         <span class="hidden sm:block leading-tight">
-          <span class="block font-heading font-bold text-[13.5px] nav-brand-text">Chinyere Clara Mmiliogu</span>
-          <span class="block text-[10px] tracking-wide nav-brand-sub">Community · Operations · Data</span>
+          <span class="block font-heading text-[13.5px] tracking-wide nav-brand-text">Chinyere Clara Mmiliogu</span>
+          <span class="block text-[10px] tracking-[0.12em] uppercase nav-brand-sub">Community · Operations · Data</span>
         </span>
       </a>
 
@@ -84,21 +85,21 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#resume" class="nav-link">Resume</a></li>
         <li>
-          <a href="#contact" class="ml-2 inline-flex items-center rounded-full bg-gold px-4 py-2 text-sm font-semibold text-espresso shadow-md hover:bg-gold-light hover:shadow-lg transition-all">
+          <a href="#contact" class="ml-3 inline-flex items-center rounded-[3px] border border-sand-200/50 bg-white/10 px-3.5 py-1.5 text-[0.75rem] tracking-[0.04em] text-sand-100 hover:bg-white/20 hover:border-sand-100 transition-colors">
             Contact
           </a>
         </li>
       </ul>
 
       <!-- Mobile toggle -->
-      <button id="menu-toggle" class="lg:hidden grid place-items-center w-11 h-11 rounded-lg nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      <button id="menu-toggle" class="lg:hidden grid place-items-center w-11 h-11 rounded nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </nav>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-cream/98 backdrop-blur border-t border-espresso-100 shadow-lg max-h-[calc(100vh-64px)] overflow-y-auto">
+    <div id="mobile-menu" class="lg:hidden hidden bg-coffee-800 border-t border-white/10 max-h-[calc(100vh-64px)] overflow-y-auto">
       <ul class="px-4 py-3 space-y-0.5">
         <li><a href="#home" class="mobile-link">Home</a></li>
         <li><a href="#about" class="mobile-link">About</a></li>
@@ -115,9 +116,8 @@
 
     <!-- ============================ HERO ============================ -->
     <section id="home" class="relative overflow-hidden text-white">
-      <!-- Decorative background -->
+      <!-- Very faint decorative texture -->
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="absolute -top-24 -right-20 w-72 h-72 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 lg:pt-28 lg:pb-24">
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
@@ -137,14 +137,14 @@
 
           <!-- TEXT -->
           <div class="text-center lg:text-left">
-            <p class="reveal inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/5 px-3 py-1 text-[11px] sm:text-xs font-medium text-gold-light mb-4">
-              <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+            <p class="reveal inline-flex items-center gap-2 rounded-[3px] border border-sand-200/25 px-2.5 py-1 text-[10.5px] sm:text-[11px] tracking-[0.06em] uppercase text-sand-300 mb-5">
+              <span class="w-1 h-1 rounded-full bg-gold"></span>
               Open to Community, Operations &amp; Data roles
             </p>
 
-            <h1 class="reveal font-heading font-extrabold leading-[1.1] text-[1.6rem] sm:text-3xl lg:text-4xl xl:text-5xl">
-              Chinyere Clara<br />
-              <span class="text-gradient">Mmiliogu</span>
+            <h1 class="reveal font-heading leading-[1.15] text-[1.55rem] sm:text-[1.9rem] lg:text-[2.4rem] xl:text-[2.9rem] tracking-[0.01em]">
+              <span class="hero-name">Chinyere Clara</span><br />
+              <span class="hero-surname">Mmiliogu</span>
             </h1>
 
             <!-- Three fine circles under the name -->
@@ -154,28 +154,28 @@
               <li class="hero-circle hero-circle--operations">Operations</li>
             </ul>
 
-            <p class="reveal mt-5 text-[0.82rem] sm:text-sm lg:text-base text-espresso-200 font-medium" style="--delay:.15s">
+            <p class="reveal mt-5 font-heading text-[0.8rem] sm:text-[0.88rem] lg:text-[0.98rem] tracking-[0.06em] uppercase text-copper-pale" style="--delay:.15s">
               Community Operations · Events · Learner Engagement · Data Analytics
             </p>
 
-            <p class="reveal mt-3 text-[0.8rem] sm:text-[0.88rem] lg:text-[0.95rem] text-espresso-200/90 leading-relaxed max-w-xl mx-auto lg:mx-0" style="--delay:.2s">
+            <p class="reveal mt-3.5 text-[0.8rem] sm:text-[0.86rem] lg:text-[0.92rem] text-sand-300 leading-relaxed max-w-xl mx-auto lg:mx-0" style="--delay:.2s">
               I build engaging community experiences and use data to understand participation,
               improve operations, and create better experiences for the people we serve.
             </p>
 
             <!-- Positioning statement -->
-            <p class="reveal mt-6 font-heading font-bold text-sm sm:text-base lg:text-lg tracking-tight" style="--delay:.25s">
-              Community. <span class="text-gold-light">Operations.</span> Data. <span class="text-gold-light">Impact.</span>
+            <p class="reveal mt-6 font-heading text-[0.85rem] sm:text-[0.95rem] lg:text-[1.05rem] tracking-[0.05em] text-white" style="--delay:.25s">
+              Community. <span class="text-copper-pale">Operations.</span> Data. <span class="text-copper-pale">Impact.</span>
             </p>
 
             <!-- CTAs -->
-            <div class="reveal mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-3" style="--delay:.3s">
+            <div class="reveal mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-2.5" style="--delay:.3s">
               <a href="#community-projects" class="btn-primary">
                 View Projects
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
               <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 Download CV
               </a>
               <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="btn-ghost">
@@ -187,16 +187,11 @@
 
         </div>
       </div>
-
-      <!-- Wave divider into the cream page background -->
-      <div class="relative -mb-1" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block"><path d="M0 80h1440V0c-240 53.3-480 53.3-720 0S240 0 0 40v40z" fill="#FBF6EC"/></svg>
-      </div>
     </section>
 
     <!-- ============================ IMPACT STATS ============================ -->
-    <section class="bg-cream" aria-label="Impact at a glance">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-2">
+    <section class="bg-white pt-10 lg:pt-14" aria-label="Impact at a glance">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           <div class="reveal stat-card">
             <div class="stat-number" data-count="8">0</div>
@@ -219,22 +214,22 @@
     </section>
 
     <!-- ============================ ABOUT ============================ -->
-    <section id="about" class="py-14 lg:py-24 bg-cream">
+    <section id="about" class="py-14 lg:py-24 mt-10 lg:mt-14 bg-band-warm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           <!-- Portrait -->
           <div class="lg:col-span-5 reveal">
             <div class="relative max-w-[260px] sm:max-w-[320px] lg:max-w-none mx-auto">
-              <div class="aspect-[4/5] rounded-2xl lg:rounded-3xl overflow-hidden bg-espresso shadow-lg">
+              <div class="aspect-[4/5] rounded overflow-hidden bg-coffee">
                 <img src="assets/images/portrait.jpg" alt="Chinyere Clara Mmiliogu" class="w-full h-full object-cover"
                      onerror="this.style.display='none'; this.parentElement.classList.add('portrait-fallback');" />
                 <div class="portrait-initials font-heading">CM</div>
               </div>
               <!-- Floating badge -->
-              <div class="absolute -bottom-4 -right-2 sm:right-4 bg-white rounded-xl shadow-lg px-3.5 py-2.5 border border-espresso-100">
-                <p class="text-[9px] uppercase tracking-wider text-gold-600 font-bold">Currently</p>
-                <p class="font-heading font-bold text-sm text-ink">ALX Africa</p>
-                <p class="text-[11px] text-espresso-400">Community &amp; Operations</p>
+              <div class="absolute -bottom-4 -right-2 sm:right-4 bg-white rounded px-3.5 py-2.5 border border-hair">
+                <p class="text-[9px] uppercase tracking-[0.14em] text-muted">Currently</p>
+                <p class="font-heading text-sm text-copper">ALX Africa</p>
+                <p class="text-[11px] text-muted">Community &amp; Operations</p>
               </div>
             </div>
           </div>
@@ -244,9 +239,9 @@
             <p class="section-eyebrow">About Me</p>
             <h2 class="section-title">Where people, programmes &amp; data meet</h2>
 
-            <div class="mt-5 space-y-3.5 text-[0.875rem] lg:text-[0.95rem] leading-relaxed">
+            <div class="mt-5 space-y-3.5 text-[0.82rem] lg:text-[0.9rem] leading-[1.75]">
               <p>
-                I am a <strong class="text-ink font-semibold">Community Operations and Data Analytics</strong> professional
+                I am a <strong class="text-copper-dark font-medium">Community Operations and Data Analytics</strong> professional
                 passionate about building meaningful communities and using data to create better experiences
                 for the people they serve.
               </p>
@@ -257,7 +252,7 @@
                 improvements.
               </p>
               <p>
-                Through my experience at <strong class="text-ink font-semibold">ALX Africa</strong>, I have supported learner
+                Through my experience at <strong class="text-copper-dark font-medium">ALX Africa</strong>, I have supported learner
                 and alumni engagement, volunteer coordination, hub operations, community events, reporting, and
                 data-driven decision-making.
               </p>
@@ -453,7 +448,7 @@
     </section>
 
     <!-- ============================ DATA PROJECTS ============================ -->
-    <section id="data-projects" class="py-14 lg:py-24 bg-cream">
+    <section id="data-projects" class="py-14 lg:py-24 bg-band">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl reveal">
           <p class="section-eyebrow">Data Projects</p>
@@ -563,13 +558,12 @@
     </section>
 
     <!-- ============================ SKILLS ============================ -->
-    <section id="skills" class="py-14 lg:py-24 bg-espresso text-white relative overflow-hidden">
-      <div class="absolute -top-28 right-0 w-72 h-72 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="skills" class="py-14 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl reveal">
-          <p class="section-eyebrow section-eyebrow--light">Skills</p>
-          <h2 class="section-title text-white">A blend of people &amp; numbers</h2>
-          <p class="section-lead text-espresso-200">
+          <p class="section-eyebrow">Skills</p>
+          <h2 class="section-title">A blend of people &amp; numbers</h2>
+          <p class="section-lead">
             Three connected skill sets that let me run great programmes and prove their impact.
           </p>
         </div>
@@ -625,9 +619,9 @@
     </section>
 
     <!-- ============================ RESUME ============================ -->
-    <section id="resume" class="py-14 lg:py-24 bg-white">
+    <section id="resume" class="py-14 lg:py-24 bg-band">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="rounded-2xl lg:rounded-3xl bg-cream border border-espresso-100 p-6 sm:p-9 lg:p-11 reveal">
+        <div class="rounded bg-white border border-hair p-6 sm:p-9 lg:p-11 reveal">
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p class="section-eyebrow">Resume</p>
@@ -636,9 +630,9 @@
                 A one-page snapshot of my experience across community, operations and data — ready to
                 download and share.
               </p>
-              <div class="mt-6 flex flex-wrap gap-3">
+              <div class="mt-6 flex flex-wrap gap-2.5">
                 <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                   Download CV
                 </a>
                 <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="btn-outline">
@@ -675,13 +669,13 @@
       </div>
     </section>
 
-    <!-- ============================ CONTACT ============================ -->
-    <section id="contact" class="py-14 lg:py-24 bg-cream">
+    <!-- ============================ CONTACT (dark brown band) ============================ -->
+    <section id="contact" class="py-14 lg:py-24 bg-cocoa">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto reveal">
-          <p class="section-eyebrow">Contact</p>
-          <h2 class="section-title">Let's build something with impact</h2>
-          <p class="section-lead mx-auto">
+          <p class="section-eyebrow section-eyebrow--light justify-center">Contact</p>
+          <h2 class="section-title section-title--light">Let's build something with impact</h2>
+          <p class="section-lead section-lead--light mx-auto">
             I'm open to roles in community management, operations, programmes &amp; partnerships, learner and
             customer experience, and data &amp; reporting. Reach out — I'd love to talk.
           </p>
@@ -710,14 +704,14 @@
   </main>
 
   <!-- ============================ FOOTER ============================ -->
-  <footer class="bg-espresso-900 text-espresso-200">
+  <footer class="bg-cocoa-deep text-sand-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 lg:py-11">
       <div class="flex flex-col md:flex-row items-center justify-between gap-5">
         <div class="flex items-center gap-3">
-          <span class="grid place-items-center w-9 h-9 rounded-full bg-white/5 text-gold font-heading font-extrabold text-sm shrink-0">CM</span>
+          <span class="grid place-items-center w-9 h-9 rounded-full border border-copper-pale/40 text-copper-pale font-heading text-sm shrink-0">CM</span>
           <div class="text-center md:text-left">
-            <p class="font-heading font-bold text-white text-sm">Chinyere Clara Mmiliogu</p>
-            <p class="text-xs">Community. Operations. Data. Impact.</p>
+            <p class="font-heading text-white text-sm tracking-wide">Chinyere Clara Mmiliogu</p>
+            <p class="text-[11px] tracking-[0.08em] uppercase">Community. Operations. Data. Impact.</p>
           </div>
         </div>
         <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
@@ -728,7 +722,7 @@
           <li><a href="#contact" class="footer-link">Contact</a></li>
         </ul>
       </div>
-      <div class="mt-7 pt-5 border-t border-white/10 text-center text-xs text-espresso-300">
+      <div class="mt-7 pt-5 border-t border-white/10 text-center text-[11px] text-sand-400">
         © <span id="year">2026</span> Chinyere Clara Mmiliogu. Built with HTML, Tailwind CSS &amp; JavaScript.
       </div>
     </div>
@@ -736,7 +730,7 @@
 
   <!-- Back to top -->
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
   </button>
 
   <script src="js/main.js"></script>
