@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chinyere Clara Mmiliogu — Community. Operations. Data. Impact.</title>
+  <meta name="description" content="Portfolio of Chinyere Clara Mmiliogu — a Community Operations and Data Analytics professional building engaging community experiences and using data to improve operations and impact." />
+  <meta name="author" content="Chinyere Clara Mmiliogu" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:title" content="Chinyere Clara Mmiliogu — Community. Operations. Data. Impact." />
+  <meta property="og:description" content="Community Operations | Events | Learner Engagement | Data Analytics" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (inline SVG: navy circle with green initials) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230B2D56'/%3E%3Ctext x='50' y='67' font-family='Montserrat,Arial,sans-serif' font-size='42' font-weight='700' fill='%2300A86B' text-anchor='middle'%3ECM%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts: Montserrat (headings) + Inter (body, an Aptos/Calibri-style humanist sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (Play CDN — zero build step, works directly on GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              50: '#eef3f9', 100: '#d6e2f0', 200: '#adc3e0', 300: '#7b9bc9',
+              400: '#4a70ad', 500: '#274f8c', 600: '#183c72', DEFAULT: '#0B2D56',
+              700: '#0B2D56', 800: '#092343', 900: '#061a32',
+            },
+            brandgreen: {
+              50: '#e6f8f0', 100: '#c2efdc', 200: '#89e0bc', 300: '#4fce9c',
+              400: '#1eb87e', DEFAULT: '#00A86B', 500: '#00A86B', 600: '#009160',
+              700: '#00734d', 800: '#00563a', 900: '#003a27',
+            },
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 10px 30px -12px rgba(11, 45, 86, 0.18)',
+            'card-hover': '0 24px 48px -16px rgba(11, 45, 86, 0.28)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="font-body text-navy-900 bg-white antialiased">
+
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <!-- ============================ NAVBAR ============================ -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-[72px]">
+      <!-- Brand -->
+      <a href="#home" class="flex items-center gap-3 group" aria-label="Home">
+        <span class="grid place-items-center w-10 h-10 rounded-full bg-navy text-brandgreen font-heading font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">CM</span>
+        <span class="hidden sm:block leading-tight">
+          <span class="block font-heading font-bold text-[15px] nav-brand-text">Chinyere Clara Mmiliogu</span>
+          <span class="block text-[11px] tracking-wide nav-brand-sub">Community · Operations · Data</span>
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden lg:flex items-center gap-1" id="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#community-projects" class="nav-link">Community</a></li>
+        <li><a href="#data-projects" class="nav-link">Data</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li>
+          <a href="#contact" class="ml-2 inline-flex items-center gap-2 rounded-full bg-brandgreen px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-brandgreen-600 hover:shadow-lg transition-all">
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile toggle -->
+      <button id="menu-toggle" class="lg:hidden grid place-items-center w-11 h-11 rounded-lg nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-white/98 backdrop-blur border-t border-navy-100 shadow-lg">
+      <ul class="px-5 py-4 space-y-1">
+        <li><a href="#home" class="mobile-link">Home</a></li>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#community-projects" class="mobile-link">Community Projects</a></li>
+        <li><a href="#data-projects" class="mobile-link">Data Projects</a></li>
+        <li><a href="#skills" class="mobile-link">Skills</a></li>
+        <li><a href="#resume" class="mobile-link">Resume</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================ HERO ============================ -->
+    <section id="home" class="relative overflow-hidden bg-navy text-white">
+      <!-- Decorative background -->
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brandgreen/20 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute bottom-0 -left-24 w-96 h-96 rounded-full bg-navy-400/20 blur-3xl" aria-hidden="true"></div>
+
+      <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-20 lg:pt-44 lg:pb-28">
+        <div class="max-w-4xl">
+          <p class="reveal inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-sm font-medium text-brandgreen-200 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brandgreen animate-pulse"></span>
+            Open to Community, Operations &amp; Data roles
+          </p>
+
+          <h1 class="reveal font-heading font-extrabold leading-[1.05] text-4xl sm:text-6xl lg:text-7xl">
+            Chinyere Clara<br />
+            <span class="text-gradient">Mmiliogu</span>
+          </h1>
+
+          <p class="reveal mt-6 text-lg sm:text-xl text-navy-100 font-medium" style="--delay:.1s">
+            Community Operations · Events · Learner Engagement · Data Analytics
+          </p>
+
+          <p class="reveal mt-4 max-w-2xl text-base sm:text-lg text-navy-200 leading-relaxed" style="--delay:.15s">
+            I build engaging community experiences and use data to understand participation,
+            improve operations, and create better experiences for the people we serve.
+          </p>
+
+          <!-- Positioning statement -->
+          <p class="reveal mt-8 font-heading font-bold text-xl sm:text-2xl tracking-tight" style="--delay:.2s">
+            Community. <span class="text-brandgreen">Operations.</span> Data. <span class="text-brandgreen">Impact.</span>
+          </p>
+
+          <!-- CTAs -->
+          <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="--delay:.25s">
+            <a href="#community-projects" class="btn-primary">
+              View Projects
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Download CV
+            </a>
+            <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wave divider -->
+      <div class="relative -mb-1" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block"><path d="M0 80h1440V0c-240 53.3-480 53.3-720 0S240 0 0 40v40z" fill="#ffffff"/></svg>
+      </div>
+    </section>
+
+    <!-- ============================ IMPACT STATS ============================ -->
+    <section class="bg-white" aria-label="Impact at a glance">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 -mt-4 pb-4">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div class="reveal stat-card">
+            <div class="stat-number" data-count="8" data-suffix="">0</div>
+            <p class="stat-label">Featured Projects</p>
+          </div>
+          <div class="reveal stat-card" style="--delay:.08s">
+            <div class="stat-number" data-count="3" data-suffix="">0</div>
+            <p class="stat-label">Lagos Hubs Served</p>
+          </div>
+          <div class="reveal stat-card" style="--delay:.16s">
+            <div class="stat-number" data-count="120" data-suffix="+">0</div>
+            <p class="stat-label">Peak Event Attendance</p>
+          </div>
+          <div class="reveal stat-card" style="--delay:.24s">
+            <div class="stat-number" data-count="50" data-suffix="+">0</div>
+            <p class="stat-label">Businesses Showcased</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section id="about" class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <!-- Left: portrait + quick facts -->
+          <div class="lg:col-span-5 reveal">
+            <div class="relative">
+              <!-- Portrait placeholder — replace src with a real photo -->
+              <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-navy shadow-card">
+                <img src="assets/images/portrait.jpg" alt="Chinyere Clara Mmiliogu" class="w-full h-full object-cover"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('portrait-fallback');" />
+                <div class="portrait-initials font-heading">CM</div>
+              </div>
+              <!-- Floating badge -->
+              <div class="absolute -bottom-5 -right-3 sm:right-6 bg-white rounded-2xl shadow-card px-5 py-4 border border-navy-50">
+                <p class="text-xs uppercase tracking-wider text-navy-400 font-semibold">Currently</p>
+                <p class="font-heading font-bold text-navy">ALX Africa</p>
+                <p class="text-sm text-navy-500">Community &amp; Operations</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: bio -->
+          <div class="lg:col-span-7 reveal" style="--delay:.1s">
+            <p class="section-eyebrow">About Me</p>
+            <h2 class="section-title">Where people, programmes &amp; data meet</h2>
+
+            <div class="mt-6 space-y-5 text-navy-600 text-lg leading-relaxed">
+              <p>
+                I am a <strong class="text-navy">Community Operations and Data Analytics</strong> professional
+                passionate about building meaningful communities and using data to create better experiences
+                for the people they serve.
+              </p>
+              <p>
+                My work sits at the intersection of community engagement, programme execution, operations, and
+                analytics — from planning and coordinating events and engagement initiatives to tracking
+                participation, gathering feedback, analysing trends, and translating insights into actionable
+                improvements.
+              </p>
+              <p>
+                Through my experience at <strong class="text-navy">ALX Africa</strong>, I have supported learner
+                and alumni engagement, volunteer coordination, hub operations, community events, reporting, and
+                data-driven decision-making.
+              </p>
+              <p>
+                I am particularly interested in opportunities where people, programmes, and data come together to
+                create stronger communities and measurable impact.
+              </p>
+            </div>
+
+            <!-- Focus areas -->
+            <div class="mt-8 grid sm:grid-cols-2 gap-4">
+              <div class="focus-card">
+                <span class="focus-icon">🤝</span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Community Building</p>
+                  <p class="text-sm text-navy-500">Engagement, events &amp; belonging</p>
+                </div>
+              </div>
+              <div class="focus-card">
+                <span class="focus-icon">🗂️</span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Programme &amp; Event Execution</p>
+                  <p class="text-sm text-navy-500">Planning to on-ground delivery</p>
+                </div>
+              </div>
+              <div class="focus-card">
+                <span class="focus-icon">⚙️</span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Operations</p>
+                  <p class="text-sm text-navy-500">Logistics, procurement &amp; budgets</p>
+                </div>
+              </div>
+              <div class="focus-card">
+                <span class="focus-icon">📊</span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Data Analytics</p>
+                  <p class="text-sm text-navy-500">Reporting, dashboards &amp; insight</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ COMMUNITY PROJECTS ============================ -->
+    <section id="community-projects" class="py-20 lg:py-28 bg-navy-50/60">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl reveal">
+          <p class="section-eyebrow">Community Projects</p>
+          <h2 class="section-title">Building vibrant communities</h2>
+          <p class="section-lead">
+            Community building, event management, stakeholder engagement, volunteer coordination,
+            communication and operations — delivered on the ground.
+          </p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 gap-6 lg:gap-8">
+
+          <!-- Project 1 -->
+          <article class="reveal project-card">
+            <div class="project-media project-media--1">
+              <span class="project-tag">Lead Coordinator</span>
+              <span class="project-emoji">🏆</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Dec 2025 · 120+ Attendees · 3 Lagos Hubs</div>
+              <h3 class="project-title">Inter-Hub Grand Games &amp; Awards Day</h3>
+              <p class="project-desc">
+                Led ALX's inaugural Inter-Hub Grand Games &amp; Awards Day, bringing together learners and
+                alumni from three Lagos hubs to strengthen community spirit and cross-hub relationships.
+              </p>
+              <div class="project-section-label">Responsibilities</div>
+              <div class="chip-row">
+                <span class="chip">Community communications</span>
+                <span class="chip">Procurement</span>
+                <span class="chip">Logistics</span>
+                <span class="chip">Volunteer coordination</span>
+                <span class="chip">Event setup</span>
+                <span class="chip">On-ground execution</span>
+              </div>
+              <div class="project-metrics">
+                <div><span class="metric-num">120+</span><span class="metric-cap">Attendees</span></div>
+                <div><span class="metric-num">3</span><span class="metric-cap">Lagos hubs</span></div>
+                <div><span class="metric-num">1st</span><span class="metric-cap">Inter-hub edition</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="reveal project-card" style="--delay:.08s">
+            <div class="project-media project-media--2">
+              <span class="project-tag">Events &amp; Community Support</span>
+              <span class="project-emoji">🛍️</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Aug 2025 · 50+ Vendors · 150+ Shoppers</div>
+              <h3 class="project-title">ALX Business Showcase</h3>
+              <p class="project-desc">
+                Supported delivery of the ALX Business Showcase, promoting entrepreneurship within the
+                community and increasing visibility for member-owned businesses.
+              </p>
+              <div class="project-section-label">Responsibilities</div>
+              <div class="chip-row">
+                <span class="chip">Event publicity</span>
+                <span class="chip">Volunteer coordination</span>
+                <span class="chip">Space setup</span>
+                <span class="chip">Guest experience</span>
+                <span class="chip">Event flow</span>
+              </div>
+              <div class="project-metrics">
+                <div><span class="metric-num">50+</span><span class="metric-cap">Vendors</span></div>
+                <div><span class="metric-num">150+</span><span class="metric-cap">Shoppers</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="reveal project-card" style="--delay:.16s">
+            <div class="project-media project-media--3">
+              <span class="project-tag">Co-Planner &amp; Coordinator</span>
+              <span class="project-emoji">🙌</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">May 2026 · 1st Edition</div>
+              <h3 class="project-title">Hub Support Staff Hangout</h3>
+              <p class="project-desc">
+                Co-planned ALX Nigeria's inaugural appreciation and team-building event for front desk,
+                security, housekeeping, IT, and maintenance teams.
+              </p>
+              <div class="project-section-label">Responsibilities</div>
+              <div class="chip-row">
+                <span class="chip">Activity ideation</span>
+                <span class="chip">Publicity</span>
+                <span class="chip">Role allocation</span>
+                <span class="chip">Procurement</span>
+                <span class="chip">Budgeting</span>
+                <span class="chip">Logistics</span>
+                <span class="chip">Account reconciliation</span>
+                <span class="chip">Feedback collection</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="reveal project-card" style="--delay:.24s">
+            <div class="project-media project-media--4">
+              <span class="project-tag">Lead Coordinator</span>
+              <span class="project-emoji">🎲</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">Recurring Engagement Initiative</div>
+              <h3 class="project-title">Monthly Games Days</h3>
+              <p class="project-desc">
+                Designed and coordinated recurring engagement activities across three Lagos hubs to encourage
+                participation, networking, and community bonding.
+              </p>
+              <div class="project-section-label">Portfolio assets</div>
+              <div class="chip-row">
+                <span class="chip">Photos</span>
+                <span class="chip">Attendance records</span>
+                <span class="chip">Engagement highlights</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="reveal project-card md:col-span-2" style="--delay:.1s">
+            <div class="md:flex">
+              <div class="project-media project-media--5 md:w-2/5 md:min-h-[220px]">
+                <span class="project-tag">Lead Organiser</span>
+                <span class="project-emoji">💝</span>
+              </div>
+              <div class="project-body md:w-3/5">
+                <div class="project-meta">Feb 2026 · Costain Hub</div>
+                <h3 class="project-title">Valentine's Community Connect</h3>
+                <p class="project-desc">
+                  Coordinated the first Valentine's-themed community event at Costain Hub featuring a guest
+                  speaker and interactive engagement sessions.
+                </p>
+                <div class="project-section-label">Portfolio assets</div>
+                <div class="chip-row">
+                  <span class="chip">Event photos</span>
+                  <span class="chip">Speaker information</span>
+                  <span class="chip">Testimonials</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ DATA PROJECTS ============================ -->
+    <section id="data-projects" class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl reveal">
+          <p class="section-eyebrow">Data Projects</p>
+          <h2 class="section-title">Turning data into decisions</h2>
+          <p class="section-lead">
+            Analytics, reporting, dashboard design, insight generation and decision support — connecting
+            community activity to measurable outcomes.
+          </p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Data Project 6 -->
+          <article class="reveal data-card">
+            <div class="data-card-top">
+              <span class="data-icon">📈</span>
+              <div class="data-tools">
+                <span class="tool-chip">Google Sheets</span>
+                <span class="tool-chip">Looker Studio</span>
+              </div>
+            </div>
+            <h3 class="project-title">Hub Performance Dashboard</h3>
+            <div class="data-block">
+              <p class="data-label">Business question</p>
+              <p class="data-text">How can attendance and hub activity data be used to improve community engagement and operations?</p>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Data used</p>
+              <div class="chip-row">
+                <span class="chip">Attendance</span><span class="chip">Occupancy</span>
+                <span class="chip">Event participation</span><span class="chip">Hub utilisation</span>
+              </div>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Skills demonstrated</p>
+              <div class="chip-row">
+                <span class="chip chip--green">Data cleaning</span><span class="chip chip--green">Pivot tables</span>
+                <span class="chip chip--green">Dashboard development</span><span class="chip chip--green">KPI tracking</span>
+                <span class="chip chip--green">Data visualisation</span>
+              </div>
+            </div>
+            <div class="data-outputs">Outputs: dashboard screenshots · insights · recommendations</div>
+          </article>
+
+          <!-- Data Project 7 -->
+          <article class="reveal data-card" style="--delay:.1s">
+            <div class="data-card-top">
+              <span class="data-icon">💬</span>
+              <div class="data-tools">
+                <span class="tool-chip">Community Insights</span>
+              </div>
+            </div>
+            <h3 class="project-title">Learner Feedback Analysis</h3>
+            <div class="data-block">
+              <p class="data-label">Business question</p>
+              <p class="data-text">What are learners saying about the hub experience?</p>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Data used</p>
+              <div class="chip-row">
+                <span class="chip">Survey responses</span><span class="chip">Satisfaction scores</span>
+                <span class="chip">Open-ended feedback</span>
+              </div>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Skills demonstrated</p>
+              <div class="chip-row">
+                <span class="chip chip--green">Data cleaning</span><span class="chip chip--green">Categorisation</span>
+                <span class="chip chip--green">Sentiment analysis</span><span class="chip chip--green">Reporting</span>
+              </div>
+            </div>
+            <div class="data-outputs">Outputs: charts · findings · recommendations</div>
+          </article>
+
+          <!-- Data Project 8 -->
+          <article class="reveal data-card" style="--delay:.2s">
+            <div class="data-card-top">
+              <span class="data-icon">🏢</span>
+              <div class="data-tools">
+                <span class="tool-chip">Occupancy Analytics</span>
+              </div>
+            </div>
+            <h3 class="project-title">Hub Footfall &amp; Occupancy Analysis</h3>
+            <div class="data-block">
+              <p class="data-label">Business question</p>
+              <p class="data-text">How are learners using the hub?</p>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Data used</p>
+              <div class="chip-row">
+                <span class="chip">Daily attendance</span><span class="chip">Occupancy records</span>
+                <span class="chip">Peak periods</span>
+              </div>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Skills demonstrated</p>
+              <div class="chip-row">
+                <span class="chip chip--green">Trend analysis</span><span class="chip chip--green">Dashboards</span>
+                <span class="chip chip--green">Data visualisation</span>
+              </div>
+            </div>
+            <div class="data-outputs">Outputs: charts · dashboards · recommendations</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section id="skills" class="py-20 lg:py-28 bg-navy text-white relative overflow-hidden">
+      <div class="absolute -top-32 right-0 w-80 h-80 rounded-full bg-brandgreen/10 blur-3xl" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 relative">
+        <div class="max-w-3xl reveal">
+          <p class="section-eyebrow section-eyebrow--light">Skills</p>
+          <h2 class="section-title text-white">A blend of people &amp; numbers</h2>
+          <p class="section-lead text-navy-200">
+            Three connected skill sets that let me run great programmes and prove their impact.
+          </p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <!-- Community -->
+          <div class="reveal skill-group">
+            <div class="skill-head">
+              <span class="skill-head-icon">🤝</span>
+              <h3 class="skill-head-title">Community</h3>
+            </div>
+            <ul class="skill-list">
+              <li>Community Engagement</li>
+              <li>Learner Experience</li>
+              <li>Alumni Relations</li>
+              <li>Volunteer Leadership</li>
+              <li>Community Communications</li>
+              <li>Event Coordination</li>
+              <li>Stakeholder Management</li>
+            </ul>
+          </div>
+
+          <!-- Operations -->
+          <div class="reveal skill-group" style="--delay:.1s">
+            <div class="skill-head">
+              <span class="skill-head-icon">⚙️</span>
+              <h3 class="skill-head-title">Operations</h3>
+            </div>
+            <ul class="skill-list">
+              <li>Hub Operations</li>
+              <li>Logistics</li>
+              <li>Procurement</li>
+              <li>Budgeting</li>
+              <li>Process Improvement</li>
+            </ul>
+          </div>
+
+          <!-- Data -->
+          <div class="reveal skill-group" style="--delay:.2s">
+            <div class="skill-head">
+              <span class="skill-head-icon">📊</span>
+              <h3 class="skill-head-title">Data</h3>
+            </div>
+            <ul class="skill-list">
+              <li>Google Sheets</li>
+              <li>Excel</li>
+              <li>Looker Studio</li>
+              <li>Power BI</li>
+              <li>SQL</li>
+              <li>Python (Basic)</li>
+              <li>AI Tools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ RESUME ============================ -->
+    <section id="resume" class="py-20 lg:py-28 bg-white">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        <div class="rounded-3xl bg-navy-50/70 border border-navy-100 p-8 sm:p-12 reveal">
+          <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <p class="section-eyebrow">Resume</p>
+              <h2 class="section-title">Take the details with you</h2>
+              <p class="section-lead">
+                A one-page snapshot of my experience across community, operations and data — ready to
+                download and share.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="btn-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                  Download CV
+                </a>
+                <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="btn-outline">
+                  View LinkedIn
+                </a>
+              </div>
+            </div>
+
+            <ul class="space-y-4">
+              <li class="resume-highlight">
+                <span class="resume-dot"></span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Community &amp; Operations — ALX Africa</p>
+                  <p class="text-sm text-navy-500">Learner &amp; alumni engagement, hub operations, events &amp; reporting</p>
+                </div>
+              </li>
+              <li class="resume-highlight">
+                <span class="resume-dot"></span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Programme &amp; Event Execution</p>
+                  <p class="text-sm text-navy-500">Planning, logistics and on-ground delivery for 120+ attendee events</p>
+                </div>
+              </li>
+              <li class="resume-highlight">
+                <span class="resume-dot"></span>
+                <div>
+                  <p class="font-heading font-semibold text-navy">Data &amp; Reporting</p>
+                  <p class="text-sm text-navy-500">Dashboards, feedback analysis and KPI tracking for decision support</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section id="contact" class="py-20 lg:py-28 bg-navy-50/60">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="section-eyebrow">Contact</p>
+          <h2 class="section-title">Let's build something with impact</h2>
+          <p class="section-lead mx-auto">
+            I'm open to roles in community management, operations, programmes &amp; partnerships, learner and
+            customer experience, and data &amp; reporting. Reach out — I'd love to talk.
+          </p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-3 gap-5 reveal" style="--delay:.1s">
+          <a href="mailto:your.email@example.com" class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <p class="contact-label">Email</p>
+            <p class="contact-value">your.email@example.com</p>
+          </a>
+          <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon">💼</span>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value">Connect with me</p>
+          </a>
+          <a href="assets/cv/Chinyere-Clara-Mmiliogu-CV.pdf" download class="contact-card">
+            <span class="contact-icon">📄</span>
+            <p class="contact-label">Resume</p>
+            <p class="contact-value">Download CV</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="bg-navy-900 text-navy-200">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <span class="grid place-items-center w-10 h-10 rounded-full bg-white/5 text-brandgreen font-heading font-extrabold">CM</span>
+          <div>
+            <p class="font-heading font-bold text-white">Chinyere Clara Mmiliogu</p>
+            <p class="text-sm">Community. Operations. Data. Impact.</p>
+          </div>
+        </div>
+        <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+          <li><a href="#about" class="footer-link">About</a></li>
+          <li><a href="#community-projects" class="footer-link">Community</a></li>
+          <li><a href="#data-projects" class="footer-link">Data</a></li>
+          <li><a href="#skills" class="footer-link">Skills</a></li>
+          <li><a href="#contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="mt-8 pt-6 border-t border-white/10 text-center text-sm text-navy-300">
+        © <span id="year">2026</span> Chinyere Clara Mmiliogu. Built with HTML, Tailwind CSS &amp; JavaScript.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
