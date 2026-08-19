@@ -23,20 +23,23 @@ back to a CSS-generated marbled banner — so nothing ever looks broken.
 Each community project card has a preview image and a click-to-open photo
 gallery. Drop your photos into the matching folder under
 **`community_projects/`** — named `01.jpg`, `02.jpg`, `03.jpg` … in the order you
-want them shown. `01.jpg` becomes the card preview.
+want them shown.
 
-| Folder                                   | Project card                        |
-|------------------------------------------|-------------------------------------|
-| `community_projects/grand-games/`        | Inter-Hub Grand Games & Awards Day  |
-| `community_projects/business-showcase/`  | ALX Business Showcase               |
-| `community_projects/staff-hangout/`      | Hub Support Staff Hangout           |
-| `community_projects/games-days/`         | Monthly Games Days                  |
-| `community_projects/valentines-connect/` | Valentine's Community Connect       |
+| Folder                                   | Photos | Project card                        |
+|------------------------------------------|-------:|-------------------------------------|
+| `community_projects/grand-games/`        |      7 | Inter-Hub Grand Games & Awards Day  |
+| `community_projects/business-showcase/`  |      5 | ALX Business Showcase               |
+| `community_projects/staff-hangout/`      |      3 | Hub Support Staff Hangout           |
+| `community_projects/womens-board/`       |      6 | Rest and Learn Programme            |
+| `community_projects/valentines-connect/` |      4 | Valentine's Community Connect       |
+| `community_projects/games-days/`         |      — | Monthly Games Days — card is parked |
 
-No code editing needed — see `community_projects/README.md` for the full details.
+No code editing needed to add photos — see `community_projects/README.md` for the
+full details, including how to pick which photo a card previews, how to optimise
+straight-from-phone images, and how to bring the Games Days card back.
 
-Empty folders are fine: the card keeps its flat brown header and emoji, and just
-isn't clickable until you add `01.jpg`.
+Missing or empty folders are fine: the card keeps its flat brown header and emoji
+and just isn't clickable until photos exist.
 
 The `data_projects/` folder is available for dashboard screenshots, but those
 cards don't use images yet.

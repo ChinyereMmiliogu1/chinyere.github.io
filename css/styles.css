@@ -399,9 +399,8 @@ img, svg, video { max-width: 100%; }
   transition: border-color .2s ease;
 }
 .project-card:hover { border-color: var(--heading-soft); }
-/* The whole card opens the photo gallery once photos exist for it. */
-.project-card[data-gallery] { cursor: pointer; }
-.project-card[data-gallery]:has(.project-media[aria-disabled="true"]) { cursor: default; }
+/* The whole card opens the photo gallery — but only where photos exist. */
+.project-card[data-gallery]:has(.project-media.has-preview) { cursor: pointer; }
 
 /* .project-media is a <button> — reset the UA styling it brings with it. */
 .project-media {
@@ -422,21 +421,35 @@ img, svg, video { max-width: 100%; }
   transition: filter .25s ease;
 }
 @media (min-width: 640px) { .project-media { min-height: 118px; padding: 1rem 1.2rem; } }
-.project-media[aria-disabled="true"] { cursor: default; }
+/* No photos in that project's folder — nothing to open. */
+.project-media:not(.has-preview) { cursor: default; }
+.project-media:not(.has-preview) .project-photo-count { display: none; }
 .project-media:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
 
-/* ---------- Preview photo (01.jpg), swapped in by js/gallery.js ---------- */
+/* ---------- Preview photo ----------
+   The <img src> in index.html is the preview, independent of gallery order:
+   point it at whichever photo in the folder makes the best card image.
+   3:2 rather than a squat banner, because a lot of event photos are portrait
+   or collages and a wide letterbox crop cuts the heads off. */
 .project-preview {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;   /* faces sit above centre in group shots */
   z-index: 0;
 }
-.project-media.has-preview { min-height: 190px; align-items: flex-end; }
-@media (min-width: 640px) { .project-media.has-preview { min-height: 215px; } }
-.project-media--5.has-preview { min-height: 190px; }
+.project-media.has-preview {
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+  align-items: flex-end;
+}
+/* Card 5's media sits beside its body on desktop, so let it stretch to the
+   body's height instead of forcing an aspect ratio. */
+@media (min-width: 768px) {
+  .project-media--5.has-preview { aspect-ratio: auto; min-height: 260px; }
+}
 /* Scrim so the white tag text stays readable over any photo.
    z-index 1 puts it above the photo (0); the tag + badge sit at 2. */
 .project-media.has-preview::before {

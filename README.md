@@ -166,22 +166,51 @@ To add photos, drop them into the matching folder and name them in order:
 
 ```
 assets/images/community_projects/
-├── grand-games/          ← Inter-Hub Grand Games & Awards Day
-│   ├── 01.jpg            ← becomes the card's preview image
+├── grand-games/          ← Inter-Hub Grand Games & Awards Day   (7 photos)
+│   ├── 01.jpg            ← gallery order = filename order
 │   ├── 02.jpg
-│   └── 03.jpg            ← gallery order = filename order
-├── business-showcase/    ← ALX Business Showcase
-├── staff-hangout/        ← Hub Support Staff Hangout
-├── games-days/           ← Monthly Games Days
-└── valentines-connect/   ← Valentine's Community Connect
+│   └── …
+├── business-showcase/    ← ALX Business Showcase                (5 photos)
+├── staff-hangout/        ← Hub Support Staff Hangout            (3 photos)
+├── womens-board/         ← Rest and Learn Programme             (6 photos)
+├── valentines-connect/   ← Valentine's Community Connect        (4 photos)
+└── games-days/           ← Monthly Games Days — card is parked, see below
 ```
 
-**No code editing required** — `js/gallery.js` finds the end of each set by
-loading forward until a file is missing. Empty folders are fine: those cards keep
-their flat brown header and simply aren't clickable.
+**No code editing required to add photos** — `js/gallery.js` keeps looking one
+past the last photo it knows about. Missing folders are fine: that card keeps its
+flat brown header and simply isn't clickable.
 
-Full details (photo sizing, the optional `count` setting, `.png` support) are in
-`assets/images/community_projects/README.md`.
+Each card's preview image is its own `<img src>` in `index.html`, so it can point
+at any photo in the folder — previews are cropped to a 3:2 box, so a landscape
+group shot works better than a portrait photo or a flyer.
+
+New photos straight from a phone are 2–6 MB each. `tools/normalize_photos.py`
+renames them correctly, converts to real JPEG, caps them at 1600 px and strips
+EXIF (which can carry GPS coordinates):
+
+```bash
+python -m pip install --user Pillow      # once
+python tools/normalize_photos.py         # from the repo root
+```
+
+Full details are in `assets/images/community_projects/README.md`.
+
+### Two things to know about the Women's Board photos
+
+- **`womens-board/01.jpg` has been edited.** The flyer printed a street address
+  and two phone numbers (one belonging to someone else); both areas are blurred
+  in the copy that ships. The unedited original stays in the backup folder outside
+  the repo.
+- Some of those photos show young people close up. If any were minors at the time,
+  get consent before publishing — your call, not the site's.
+
+### Monthly Games Days
+
+There's no card for this one on the page. To add it: create
+`assets/images/community_projects/games-days/` and add photos, copy any project
+`<article>` block in `index.html` and set `data-gallery="games-days"`, then set
+`count` in `js/gallery.js`.
 
 ---
 

@@ -2,36 +2,45 @@
    Community project galleries — preview images + swipeable lightbox
    =========================================================================
 
-   HOW TO ADD YOUR PHOTOS
-   ----------------------
-   1. Put each project's photos in its own folder under
-      assets/images/community_projects/  — the folder names are fixed and
-      listed in GALLERIES below.
+   HOW TO ADD OR CHANGE PHOTOS
+   ---------------------------
+   1. Each project has its own folder under assets/images/community_projects/
+      — the folder names are fixed and listed in GALLERIES below.
 
    2. Name the files 01.jpg, 02.jpg, 03.jpg … in the order you want them
-      shown. Always zero-padded, and no gaps in the numbering.
+      shown. Always two digits, and no gaps in the numbering.
 
-   3. 01.jpg becomes the card's preview image automatically.
+   3. The card's preview photo is set separately, as the <img src> inside that
+      card's <button class="project-media …"> in index.html — so you can preview
+      any photo in the folder without disturbing the gallery order. Previews are
+      cropped to a 3:2 box, so pick a wide/landscape shot.
 
-   That's all — you do NOT need to edit this file. The gallery finds the end
-   of each set on its own by loading forward until a file is missing.
+   If you ADD photos, they're found automatically — the gallery keeps looking
+   one past the last known photo. If you REMOVE photos, update `count` below
+   so the totals stay right (the gallery self-corrects either way, it just
+   shows the old total until it reaches the end).
 
-   OPTIONAL: if you set `count` to the real number of photos, the gallery
-   knows the total up front, so it can show "3 / 8" and the dot indicators
-   straight away instead of discovering them as you swipe.
+   `count` is simply how many photos are in that folder. Set it to 0 to have
+   the gallery work the number out on its own.
 
-   OPTIONAL: if your files are .png (or .jpeg), set `ext` for that project.
+   Photos must be .jpg. If a project's photos are .png instead, add
+   `ext: '.png'` to that project's line.
    ========================================================================= */
 
 (function () {
   'use strict';
 
   var GALLERIES = {
-    'grand-games':        { count: 0 },  // count: 0 = "work it out for me"
-    'business-showcase':  { count: 0 },
-    'staff-hangout':      { count: 0 },
+    'grand-games':        { count: 7 },
+    'business-showcase':  { count: 5 },
+    'staff-hangout':      { count: 3 },
+    'womens-board':       { count: 6 },
+    'valentines-connect': { count: 4 },
+    /* Monthly Games Days has no card on the page. To add one, copy any of the
+       project <article> blocks in index.html, set data-gallery="games-days",
+       drop photos into assets/images/community_projects/games-days/, and set
+       the count below. Harmless left at 0. */
     'games-days':         { count: 0 },
-    'valentines-connect': { count: 0 },
   };
 
   var BASE = 'assets/images/community_projects/';
@@ -45,52 +54,30 @@
   }
 
   /* ---------------------------------------------------------------------
-     Card previews — swap 01.jpg in where it exists, leave the flat brown
-     header + emoji where it doesn't. Nothing looks broken either way.
+     Register the cards. The preview <img> lives in index.html so the
+     browser can lazy-load it; if it 404s, its inline onerror strips the
+     .has-preview class and the card falls back to the flat brown header.
      --------------------------------------------------------------------- */
   var cards = [];
 
   function initPreviews() {
-    var articles = document.querySelectorAll('[data-gallery]');
-
-    Array.prototype.forEach.call(articles, function (article) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-gallery]'), function (article) {
       var folder = article.getAttribute('data-gallery');
       var media = article.querySelector('[data-lb-open]');
       if (!folder || !media) return;
 
-      var entry = {
+      cards.push({
         article: article,
         media: media,
         folder: folder,
         title: article.getAttribute('data-gallery-title') || '',
-        ready: false,
-      };
-      cards.push(entry);
-
-      var probe = new Image();
-      probe.onload = function () {
-        var img = document.createElement('img');
-        img.src = probe.src;
-        img.alt = '';
-        img.className = 'project-preview';
-        img.setAttribute('aria-hidden', 'true');
-        media.insertBefore(img, media.firstChild);
-        media.classList.add('has-preview');
-        entry.ready = true;
-
-        var declared = (GALLERIES[folder] || {}).count || 0;
-        var badge = media.querySelector('[data-photo-count]');
-        if (badge) {
-          badge.textContent = declared > 1 ? declared + ' photos' : 'View photos';
-          badge.hidden = false;
-        }
-      };
-      probe.onerror = function () {
-        /* No 01.jpg yet — keep the emoji header and make the card inert. */
-        media.setAttribute('aria-disabled', 'true');
-      };
-      probe.src = srcFor(folder, 0);
+      });
     });
+  }
+
+  /* A card is live only while its preview photo is actually showing. */
+  function hasPhotos(entry) {
+    return entry.media.classList.contains('has-preview');
   }
 
   /* ---------------------------------------------------------------------
@@ -153,6 +140,23 @@
     }
   }
 
+  /* Once the visitor reaches the last photo we know about, quietly check
+     whether one more exists. That way photos added to a folder later still
+     show up even though `count` above wasn't updated. */
+  function probeBeyond() {
+    if (state.total === null || state.total >= MAX_PHOTOS) return;
+    var folder = state.folder;
+    var idx = state.total;
+    var img = new Image();
+    img.onload = function () {
+      if (state.folder === folder && state.total === idx) {
+        state.total = idx + 1;
+        render();
+      }
+    };
+    img.src = srcFor(folder, idx);
+  }
+
   function render() {
     elImg.src = srcFor(state.folder, state.index);
     elImg.alt = state.title + ' — photo ' + (state.index + 1);
@@ -167,6 +171,7 @@
     renderDots();
     preload(state.index + 1);
     preload(state.index - 1);
+    if (state.total !== null && state.index >= state.total - 1) probeBeyond();
   }
 
   /* If an image 404s, the folder is shorter than we thought: that index is the
@@ -217,7 +222,7 @@
 
   /* ---- Open triggers ---- */
   function openFor(entry, e) {
-    if (!entry.ready) return;                       // no photos in that folder yet
+    if (!hasPhotos(entry)) return;                  // no photos in that folder
     if (e && e.target.closest('a')) return;         // let real links work
     if (window.getSelection && String(window.getSelection()) !== '') return;
     open(entry.folder, entry.title, 0);
