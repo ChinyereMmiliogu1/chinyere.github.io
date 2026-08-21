@@ -18,10 +18,14 @@ community_portfolio/
 │   └── styles.css          # Custom styles + animations on top of Tailwind
 ├── js/
 │   ├── main.js             # Nav, scroll-spy, reveal animations, counters
-│   └── gallery.js          # Project preview images + photo lightbox
+│   ├── gallery.js          # Project preview images + photo/screenshot lightbox
+│   └── report.js           # Opens a Power BI report in an on-page modal
+├── tools/
+│   └── normalize_photos.py # Renames/compresses/strips EXIF from event photos
 ├── assets/
 │   ├── images/             # ← add hero.jpg + portrait.jpg here
-│   │   ├── community_projects/   # ← event photos, one folder per project
+│   │   ├── community_projects/   # ← event photos, one folder per project (.jpg)
+│   │   ├── data_projects/        # ← dashboard screenshots, one per project (.png)
 │   │   └── README.md
 │   └── cv/                 # ← add your CV PDF here
 │       └── README.md
@@ -166,7 +170,7 @@ To add photos, drop them into the matching folder and name them in order:
 
 ```
 assets/images/community_projects/
-├── grand-games/          ← Inter-Hub Grand Games & Awards Day   (7 photos)
+├── grand-games/          ← ALX Inter-Hub Games & Awards Day     (7 photos)
 │   ├── 01.jpg            ← gallery order = filename order
 │   ├── 02.jpg
 │   └── …
@@ -174,7 +178,7 @@ assets/images/community_projects/
 ├── staff-hangout/        ← Hub Support Staff Hangout            (3 photos)
 ├── womens-board/         ← Rest and Learn Programme             (6 photos)
 ├── valentines-connect/   ← Valentine's Community Connect        (4 photos)
-└── games-days/           ← Monthly Games Days — card is parked, see below
+└── games-days/           ← Monthly Games Days — no card yet, see below
 ```
 
 **No code editing required to add photos** — `js/gallery.js` keeps looking one
@@ -211,6 +215,65 @@ There's no card for this one on the page. To add it: create
 `assets/images/community_projects/games-days/` and add photos, copy any project
 `<article>` block in `index.html` and set `data-gallery="games-days"`, then set
 `count` in `js/gallery.js`.
+
+---
+
+## 📊 Data projects — live reports & screenshots
+
+Four cards, each showing a dashboard screenshot, the business question it
+answers, the tools and skills used, headline numbers, and a button to the real
+thing.
+
+| Card                       | Folder (`data_projects/`) | Button                | Opens                     |
+|----------------------------|---------------------------|-----------------------|---------------------------|
+| Hub Performance Dashboard  | `hub-perf-dashboard/`     | Open the spreadsheet  | Google Sheets, new tab    |
+| Learner Feedback Analysis  | `learner-fb-analysis/`    | Open the spreadsheet  | Google Sheets, new tab    |
+| Pizza Sales Analytics      | `pizza-sales/`            | View live report      | Power BI, **on this page** |
+| Maji Ndogo Water Analytics | `maiji-ndogo-water/`      | View live report      | Power BI, **on this page** |
+
+Screenshots are `01.png` (not `.jpg`) and open full size when clicked — details
+in `assets/images/data_projects/README.md`.
+
+### Adding a Power BI report button
+
+In Power BI: **File → Embed report → Publish to web**. Copy the `src="…"` out of
+the `<iframe>` it gives you, and paste it into a button inside the card:
+
+```html
+<button type="button" class="report-btn" data-report
+        data-report-src="https://app.powerbi.com/view?r=…"
+        data-report-title="Maven Pizza Sales Dashboard">
+  View live report
+</button>
+```
+
+That's the whole job — no JavaScript to edit. `js/report.js` finds every
+`[data-report]` on the page and wires it to the modal.
+
+**The report is loaded on click, not on page load.** A published Power BI embed
+is a few megabytes and starts running the moment it's in the page, so hard-coding
+two `<iframe>`s would make every visitor download both just to read the homepage
+— painful on mobile data. The modal's iframe stays empty until someone asks for a
+report, and is reset to `about:blank` on close so it stops running.
+
+The modal closes with the **X**, **Esc**, or the backdrop, and has an **Open in
+new tab** link for anyone who wants the report full-screen.
+
+> ⚠️ **"Publish to web" reports are public by design.** Anyone with the link can
+> view them, indexable by search engines, no sign-in. Putting them on the site
+> adds no exposure you didn't already have — but don't publish this way for
+> anything with real customer or staff data in it. Both current reports are
+> course/portfolio datasets, so this is fine.
+
+### The two Google Sheets links
+
+Both are shared **view-only to anyone with the link**, which is exactly right: a
+recruiter can open them, and nobody can edit your originals. Verified working
+without a sign-in. They open in a new tab rather than the modal, because Google
+blocks Sheets from being framed by another site.
+
+If you ever want a cleaner, chrome-free read-only view, swap the trailing
+`/edit?usp=sharing` in the link for `/preview`.
 
 ---
 

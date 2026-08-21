@@ -651,6 +651,75 @@ img, svg, video { max-width: 100%; }
   font-style: italic;
 }
 
+/* ---- Dashboard screenshot at the top of a data card ----
+   Full-bleed, so it cancels the card's own padding. Cropped from the top so
+   the report title and KPI row stay visible — that's the recognisable part at
+   thumbnail size. Click it for the full-size image. */
+.data-media {
+  position: relative;
+  display: block;
+  width: auto;
+  margin: -1.15rem -1.15rem 1.1rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: var(--grey);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: filter .25s ease;
+}
+@media (min-width: 640px) { .data-media { margin: -1.4rem -1.4rem 1.2rem; } }
+.data-media:not(.has-preview) { display: none; }
+.data-media .project-preview { object-position: center top; }
+.data-media:hover { filter: brightness(1.04); }
+.data-media:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; }
+
+/* Metric strip — same idea as .project-metrics, tightened for three figures */
+.data-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.35rem;
+  margin-top: 1.05rem;
+  margin-bottom: 1.15rem;   /* guarantees a gap above the button below, which
+                               uses margin-top:auto and so can collapse to 0 */
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--line-cool);
+}
+.data-metrics > div { display: flex; flex-direction: column; }
+.data-metrics .metric-num { font-size: 1.15rem; }
+
+/* ---- "View live report" / "Open the spreadsheet" ----
+   margin-top:auto pins these to the bottom of the flex card, so the buttons
+   line up across a row even when the cards have different amounts of text. */
+.report-btn {
+  margin-top: auto;
+  margin-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  padding: 0.68rem 1.1rem;
+  min-height: 42px;
+  background: var(--btn);
+  color: #fff;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color .2s ease;
+}
+.report-btn:hover { background: var(--btn-hover); color: #fff; }
+.report-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.report-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+
 /* =========================================================================
    SKILLS
    ========================================================================= */
@@ -962,6 +1031,129 @@ body.lb-open { overflow: hidden; }
   flex: 0 0 auto;
   margin: 0;
   padding: 0.35rem 0 0.15rem;
+  text-align: center;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.63rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(201, 188, 172, 0.65);
+}
+
+/* =========================================================================
+   LIVE REPORT MODAL  (Power BI embeds, opened without leaving the page)
+   Shares body.lb-open with the photo lightbox, so only one scroll-lock rule.
+   ========================================================================= */
+.report-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;                 /* above the navbar (50) and back-to-top (40) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.report-modal[hidden] { display: none; }
+
+.report-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 19, 9, 0.96);
+}
+
+.report-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 0.6rem 0.4rem;
+  box-sizing: border-box;
+}
+@media (min-width: 900px) {
+  .report-shell {
+    width: min(1320px, 96vw);
+    height: min(90vh, 860px);
+    padding: 0.9rem;
+  }
+}
+
+.report-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.55rem;
+}
+.report-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-weight: 300;
+  font-size: 0.92rem;
+  color: #FBF7F2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.report-newtab {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(251, 247, 242, 0.32);
+  color: #FBF7F2;
+  font-family: 'Jost', 'Questrial', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.report-newtab:hover { background: rgba(255, 255, 255, 0.1); border-color: #FBF7F2; }
+.report-newtab:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+/* The label is long for a phone bar — the arrow alone still reads as "opens out" */
+@media (max-width: 479px) {
+  .report-newtab { font-size: 0; gap: 0; padding: 0.42rem 0.5rem; }
+  .report-newtab svg { width: 1rem; height: 1rem; }
+}
+
+.report-close {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(251, 247, 242, 0.32);
+  border-radius: 0;
+  background: transparent;
+  color: #FBF7F2;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.report-close:hover { background: rgba(255, 255, 255, 0.1); border-color: #FBF7F2; }
+.report-close:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* The iframe fills whatever room is left, rather than sitting at Power BI's
+   fixed 600x373.5 — the report is responsive inside it. */
+.report-frame-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  background: #fff;
+}
+.report-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.report-hint {
+  flex-shrink: 0;
+  padding-top: 0.5rem;
   text-align: center;
   font-family: 'Jost', 'Questrial', sans-serif;
   font-size: 0.63rem;

@@ -1,19 +1,26 @@
 /* =========================================================================
-   Community project galleries — preview images + swipeable lightbox
+   Project galleries — preview images + swipeable lightbox
    =========================================================================
+
+   Serves both sections: the community project photo galleries, and the data
+   project dashboard screenshots.
 
    HOW TO ADD OR CHANGE PHOTOS
    ---------------------------
-   1. Each project has its own folder under assets/images/community_projects/
-      — the folder names are fixed and listed in GALLERIES below.
+   1. Each project has its own folder of images, listed in GALLERIES below.
+      Community projects live under assets/images/community_projects/ and are
+      .jpg; data projects live under assets/images/data_projects/ and are .png
+      (see the note on that block). The folder names are fixed — each one is
+      also a data-gallery="…" attribute in index.html.
 
    2. Name the files 01.jpg, 02.jpg, 03.jpg … in the order you want them
       shown. Always two digits, and no gaps in the numbering.
 
    3. The card's preview photo is set separately, as the <img src> inside that
       card's <button class="project-media …"> in index.html — so you can preview
-      any photo in the folder without disturbing the gallery order. Previews are
-      cropped to a 3:2 box, so pick a wide/landscape shot.
+      any photo in the folder without disturbing the gallery order. Community
+      previews are cropped to a 3:2 box, data previews to 16:9 anchored to the
+      top, so pick a wide/landscape shot.
 
    If you ADD photos, they're found automatically — the gallery keeps looking
    one past the last known photo. If you REMOVE photos, update `count` below
@@ -23,8 +30,8 @@
    `count` is simply how many photos are in that folder. Set it to 0 to have
    the gallery work the number out on its own.
 
-   Photos must be .jpg. If a project's photos are .png instead, add
-   `ext: '.png'` to that project's line.
+   A folder defaults to .jpg inside community_projects/. To point elsewhere,
+   add `dir:` and/or `ext:` to that project's line.
    ========================================================================= */
 
 (function () {
@@ -43,14 +50,23 @@
     'games-days':         { count: 0 },
   };
 
-  var BASE = 'assets/images/community_projects/';
+  /* Data project dashboards live in their own folder and stay .png, because
+     JPEG compression softens small chart text. One screenshot each for now —
+     add 02.png, 03.png … to a folder and the gallery finds them on its own. */
+  GALLERIES['hub-perf-dashboard']  = { count: 1, dir: 'data_projects', ext: '.png' };
+  GALLERIES['learner-fb-analysis'] = { count: 1, dir: 'data_projects', ext: '.png' };
+  GALLERIES['pizza-sales']         = { count: 1, dir: 'data_projects', ext: '.png' };
+  GALLERIES['maiji-ndogo-water']   = { count: 1, dir: 'data_projects', ext: '.png' };
+
+  var BASE = 'assets/images/';
   var MAX_PHOTOS = 60;          // hard stop, so a typo can never loop forever
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   function srcFor(folder, index) {
     var cfg = GALLERIES[folder] || {};
-    return BASE + folder + '/' + pad(index + 1) + (cfg.ext || '.jpg');
+    return BASE + (cfg.dir || 'community_projects') + '/' + folder + '/'
+         + pad(index + 1) + (cfg.ext || '.jpg');
   }
 
   /* ---------------------------------------------------------------------
@@ -235,9 +251,15 @@
         e.stopPropagation();
         openFor(entry, e);
       });
-      /* Clicking anywhere else on the card opens it too. */
+
+      /* Cards with their own buttons and links (the data project cards, which
+         have "View live report" / "Open the spreadsheet") opt out of the
+         click-anywhere behaviour — otherwise those controls are ambiguous. */
+      if (entry.article.hasAttribute('data-gallery-mediaonly')) return;
+
       entry.article.addEventListener('click', function (e) {
         if (e.target.closest('[data-lb-open]')) return;   // handled above
+        if (e.target.closest('a, button')) return;        // let controls work
         openFor(entry, e);
       });
     });

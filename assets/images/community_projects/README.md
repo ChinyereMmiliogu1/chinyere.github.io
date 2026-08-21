@@ -3,16 +3,19 @@
 Each folder here is one project card on the site. The photos in it become that
 card's click-to-open gallery.
 
+> Looking for the **data** projects? Their dashboard screenshots live in
+> `../data_projects/`, and are `.png` rather than `.jpg` — see the README there.
+
 ## Current state
 
 | Folder                | Photos | Project card                           |
 |-----------------------|-------:|----------------------------------------|
-| `grand-games/`        |      7 | Inter-Hub Grand Games & Awards Day     |
+| `grand-games/`        |      7 | ALX Inter-Hub Games & Awards Day     |
 | `business-showcase/`  |      5 | ALX Business Showcase                  |
 | `staff-hangout/`      |      3 | Hub Support Staff Hangout              |
 | `womens-board/`       |      6 | Rest and Learn Programme (Afara Leadership Centre) |
 | `valentines-connect/` |      4 | Valentine's Community Connect          |
-| `games-days/`         |      — | Monthly Games Days — no card right now, see the note at the bottom |
+| `games-days/`         |      — | Monthly Games Days — no card, see the note at the bottom |
 
 ## The three rules
 
@@ -83,6 +86,10 @@ python tools/normalize_photos.py
 It moves your untouched originals to `../community_portfolio_photo_originals/`,
 outside the repo, so nothing is lost. The first run took the photo set from
 33.9 MB to 5.2 MB.
+
+It only ever looks inside this folder. The data project screenshots in
+`../data_projects/` are left alone on purpose — the script converts to JPEG,
+which would soften the small text on a dashboard.
 
 ## What happens if a folder is missing or empty?
 

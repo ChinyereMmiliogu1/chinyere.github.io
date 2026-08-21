@@ -498,24 +498,32 @@
         <div class="mt-12 lg:mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
           <!-- Data Project 6 -->
-          <article class="reveal data-card">
+          <article class="reveal data-card" data-gallery="hub-perf-dashboard"
+                   data-gallery-title="Hub Performance Dashboard" data-gallery-mediaonly>
+            <button type="button" class="data-media has-preview" data-lb-open
+                    aria-label="View the Hub Performance Dashboard full size">
+              <img src="assets/images/data_projects/hub-perf-dashboard/01.png" alt="" aria-hidden="true"
+                   class="project-preview" loading="lazy" decoding="async"
+                   onerror="this.closest('.data-media').classList.remove('has-preview'); this.remove();" />
+              <span class="project-photo-count" data-photo-count>Full size</span>
+            </button>
             <div class="data-card-top">
               <span class="data-icon">📈</span>
               <div class="data-tools">
                 <span class="tool-chip">Google Sheets</span>
-                <span class="tool-chip">Looker Studio</span>
               </div>
             </div>
             <h3 class="project-title">Hub Performance Dashboard</h3>
             <div class="data-block">
               <p class="data-label">Business question</p>
-              <p class="data-text">How can attendance and hub activity data be used to improve community engagement and operations?</p>
+              <p class="data-text">How are the three hubs actually being used, and how satisfied are the people using them?</p>
             </div>
             <div class="data-block">
               <p class="data-label">Data used</p>
               <div class="chip-row">
                 <span class="chip">Attendance</span><span class="chip">Occupancy</span>
                 <span class="chip">Event participation</span><span class="chip">Hub utilisation</span>
+                <span class="chip">Facility ratings</span>
               </div>
             </div>
             <div class="data-block">
@@ -523,30 +531,47 @@
               <div class="chip-row">
                 <span class="chip chip--green">Data cleaning</span><span class="chip chip--green">Pivot tables</span>
                 <span class="chip chip--green">Dashboard development</span><span class="chip chip--green">KPI tracking</span>
-                <span class="chip chip--green">Data visualisation</span>
+                <span class="chip chip--green">Data visualisation</span><span class="chip chip--green">Slicers &amp; filters</span>
               </div>
             </div>
-            <div class="data-outputs">Outputs: dashboard screenshots · insights · recommendations</div>
+            <div class="data-metrics">
+              <div><span class="metric-num">27,803</span><span class="metric-cap">Total footfall</span></div>
+              <div><span class="metric-num">1,345</span><span class="metric-cap">Unique users</span></div>
+              <div><span class="metric-num">81.5%</span><span class="metric-cap">C-Sat</span></div>
+            </div>
+            <a class="report-btn report-btn--sheet" href="https://docs.google.com/spreadsheets/d/1JyNDMoCyRo8IDNddqxJ87U43nuO7rG0prPc-pzLruHw/edit?usp=sharing"
+               target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16M4 15h16M9.5 4v16M14.5 4v16"/></svg>
+              Open the spreadsheet
+            </a>
           </article>
 
           <!-- Data Project 7 -->
-          <article class="reveal data-card" style="--delay:.1s">
+          <article class="reveal data-card" style="--delay:.1s" data-gallery="learner-fb-analysis"
+                   data-gallery-title="Learner Feedback Analysis" data-gallery-mediaonly>
+            <button type="button" class="data-media has-preview" data-lb-open
+                    aria-label="View the Learner Feedback Analysis dashboard full size">
+              <img src="assets/images/data_projects/learner-fb-analysis/01.png" alt="" aria-hidden="true"
+                   class="project-preview" loading="lazy" decoding="async"
+                   onerror="this.closest('.data-media').classList.remove('has-preview'); this.remove();" />
+              <span class="project-photo-count" data-photo-count>Full size</span>
+            </button>
             <div class="data-card-top">
               <span class="data-icon">💬</span>
               <div class="data-tools">
-                <span class="tool-chip">Community Insights</span>
+                <span class="tool-chip">Google Sheets</span>
               </div>
             </div>
             <h3 class="project-title">Learner Feedback Analysis</h3>
             <div class="data-block">
               <p class="data-label">Business question</p>
-              <p class="data-text">What are learners saying about the hub experience?</p>
+              <p class="data-text">What do learners value most about the hubs, what frustrates them, and is satisfaction improving month to month?</p>
             </div>
             <div class="data-block">
               <p class="data-label">Data used</p>
               <div class="chip-row">
-                <span class="chip">Survey responses</span><span class="chip">Satisfaction scores</span>
-                <span class="chip">Open-ended feedback</span>
+                <span class="chip">Monthly survey responses</span><span class="chip">Satisfaction scores</span>
+                <span class="chip">Open-ended feedback</span><span class="chip">Facility ratings</span>
               </div>
             </div>
             <div class="data-block">
@@ -554,39 +579,123 @@
               <div class="chip-row">
                 <span class="chip chip--green">Data cleaning</span><span class="chip chip--green">Categorisation</span>
                 <span class="chip chip--green">Sentiment analysis</span><span class="chip chip--green">Reporting</span>
+                <span class="chip chip--green">Trend analysis</span><span class="chip chip--green">Dashboard development</span>
               </div>
             </div>
-            <div class="data-outputs">Outputs: charts · findings · recommendations</div>
+            <div class="data-metrics">
+              <div><span class="metric-num">638</span><span class="metric-cap">Responses</span></div>
+              <div><span class="metric-num">5</span><span class="metric-cap">Months tracked</span></div>
+              <div><span class="metric-num">4.2</span><span class="metric-cap">Avg rating</span></div>
+            </div>
+            <a class="report-btn report-btn--sheet" href="https://docs.google.com/spreadsheets/d/1U1uoitKhQjxQL7qieHu7NNRSfRdmOE8U-kz22DGQ2_o/edit?usp=sharing"
+               target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16M4 15h16M9.5 4v16M14.5 4v16"/></svg>
+              Open the spreadsheet
+            </a>
           </article>
 
-          <!-- Data Project 8 -->
-          <article class="reveal data-card md:col-span-2 lg:col-span-1" style="--delay:.2s">
+          <!-- Data Project 8 — Pizza Sales Analytics (Power BI) -->
+          <article class="reveal data-card" style="--delay:.2s" data-gallery="pizza-sales"
+                   data-gallery-title="Pizza Sales Analytics" data-gallery-mediaonly>
+            <button type="button" class="data-media has-preview" data-lb-open
+                    aria-label="View the Pizza Sales dashboard full size">
+              <img src="assets/images/data_projects/pizza-sales/01.png" alt="" aria-hidden="true"
+                   class="project-preview" loading="lazy" decoding="async"
+                   onerror="this.closest('.data-media').classList.remove('has-preview'); this.remove();" />
+              <span class="project-photo-count" data-photo-count>Full size</span>
+            </button>
             <div class="data-card-top">
-              <span class="data-icon">🏢</span>
+              <span class="data-icon">🍕</span>
               <div class="data-tools">
-                <span class="tool-chip">Occupancy Analytics</span>
+                <span class="tool-chip">Power BI</span>
+                <span class="tool-chip">Excel</span>
               </div>
             </div>
-            <h3 class="project-title">Hub Footfall &amp; Occupancy Analysis</h3>
+            <h3 class="project-title">Pizza Sales Analytics</h3>
             <div class="data-block">
               <p class="data-label">Business question</p>
-              <p class="data-text">How are learners using the hub?</p>
+              <p class="data-text">When is the shop busiest, and which pizzas and sizes are actually driving the revenue?</p>
             </div>
             <div class="data-block">
               <p class="data-label">Data used</p>
               <div class="chip-row">
-                <span class="chip">Daily attendance</span><span class="chip">Occupancy records</span>
-                <span class="chip">Peak periods</span>
+                <span class="chip">Sales data</span><span class="chip">Order line items</span>
+                <span class="chip">Menu &amp; pricing</span>
               </div>
             </div>
             <div class="data-block">
               <p class="data-label">Skills demonstrated</p>
               <div class="chip-row">
-                <span class="chip chip--green">Trend analysis</span><span class="chip chip--green">Dashboards</span>
-                <span class="chip chip--green">Data visualisation</span>
+                <span class="chip chip--green">Data cleaning</span><span class="chip chip--green">Report design</span>
+                <span class="chip chip--green">Dashboard development</span><span class="chip chip--green">Data visualisation</span>
+                <span class="chip chip--green">KPI tracking</span><span class="chip chip--green">Power Query</span>
+                <span class="chip chip--green">DAX measures</span><span class="chip chip--green">Data modelling</span>
+                <span class="chip chip--green">Trend analysis</span>
               </div>
             </div>
-            <div class="data-outputs">Outputs: charts · dashboards · recommendations</div>
+            <div class="data-metrics">
+              <div><span class="metric-num">2.49M</span><span class="metric-cap">Revenue</span></div>
+              <div><span class="metric-num">21.4K</span><span class="metric-cap">Orders</span></div>
+              <div><span class="metric-num">116.68</span><span class="metric-cap">Avg order value</span></div>
+            </div>
+            <button type="button" class="report-btn" data-report
+                    data-report-src="https://app.powerbi.com/view?r=eyJrIjoiN2UwMWE5OTMtYjZmNi00ODk3LWFkYjgtYmUzY2M2MDZmMWNmIiwidCI6ImUxZDBiYzQ1LWY0YzQtNDJkYi04OGJjLTg5ZTI5Mjg1MGU0MiJ9"
+                    data-report-title="Maven Pizza Sales Dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19V9M10 19V5M15 19v-7M20 19v-4M3 21h18"/></svg>
+              View live report
+            </button>
+          </article>
+
+          <!-- Data Project 9 — Maji Ndogo Water Analytics (Power BI) -->
+          <article class="reveal data-card" style="--delay:.3s" data-gallery="maiji-ndogo-water"
+                   data-gallery-title="Maji Ndogo Water Analytics" data-gallery-mediaonly>
+            <button type="button" class="data-media has-preview" data-lb-open
+                    aria-label="View the Maji Ndogo Water dashboard full size">
+              <img src="assets/images/data_projects/maiji-ndogo-water/01.png" alt="" aria-hidden="true"
+                   class="project-preview" loading="lazy" decoding="async"
+                   onerror="this.closest('.data-media').classList.remove('has-preview'); this.remove();" />
+              <span class="project-photo-count" data-photo-count>Full size</span>
+            </button>
+            <div class="data-card-top">
+              <span class="data-icon">💧</span>
+              <div class="data-tools">
+                <span class="tool-chip">Power BI</span>
+                <span class="tool-chip">Spreadsheets</span>
+              </div>
+            </div>
+            <h3 class="project-title">Maji Ndogo Water Analytics</h3>
+            <div class="data-block">
+              <p class="data-label">Business question</p>
+              <p class="data-text">Is the national water programme on track — how much of the population now has access, and is the spend staying within budget?</p>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Data used</p>
+              <div class="chip-row">
+                <span class="chip">National water survey</span><span class="chip">Project records</span>
+                <span class="chip">Budget &amp; cost data</span><span class="chip">Province &amp; town locations</span>
+              </div>
+            </div>
+            <div class="data-block">
+              <p class="data-label">Skills demonstrated</p>
+              <div class="chip-row">
+                <span class="chip chip--green">Data cleaning</span><span class="chip chip--green">Report design</span>
+                <span class="chip chip--green">Dashboard development</span><span class="chip chip--green">Data visualisation</span>
+                <span class="chip chip--green">KPI tracking</span><span class="chip chip--green">DAX measures</span>
+                <span class="chip chip--green">Geospatial mapping</span><span class="chip chip--green">Budget vs actual analysis</span>
+                <span class="chip chip--green">Slicers &amp; filters</span>
+              </div>
+            </div>
+            <div class="data-metrics">
+              <div><span class="metric-num">47.8%</span><span class="metric-cap">Have water access</span></div>
+              <div><span class="metric-num">20K</span><span class="metric-cap">Projects done</span></div>
+              <div><span class="metric-num">-10.7%</span><span class="metric-cap">vs budget</span></div>
+            </div>
+            <button type="button" class="report-btn" data-report
+                    data-report-src="https://app.powerbi.com/view?r=eyJrIjoiNDk5MGUyNDItNDQ2ZC00N2ExLThjZjgtYWZlMjY4N2U5ZDdhIiwidCI6ImUxZDBiYzQ1LWY0YzQtNDJkYi04OGJjLTg5ZTI5Mjg1MGU0MiJ9"
+                    data-report-title="Maji Ndogo Water Crisis">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19V9M10 19V5M15 19v-7M20 19v-4M3 21h18"/></svg>
+              View live report
+            </button>
           </article>
 
         </div>
@@ -816,7 +925,37 @@
     </div>
   </div>
 
+  <!-- ============================ LIVE REPORT MODAL ============================
+       Opens a Power BI report on the page. The iframe's src is set by
+       js/report.js when a "View live report" button is clicked, and cleared
+       again on close — so no visitor downloads a report they didn't ask for.
+  ============================================================================ -->
+  <div id="report" class="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-title" hidden>
+    <div class="report-backdrop" data-report-close aria-hidden="true"></div>
+
+    <div class="report-shell">
+      <div class="report-bar">
+        <p class="report-title" id="report-title"></p>
+        <a class="report-newtab" id="report-open-new" href="#" target="_blank" rel="noopener">
+          Open in new tab
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5h5v5M19 5l-7 7M11 5H6a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1v-5"/></svg>
+        </a>
+        <button type="button" class="report-close" id="report-close" aria-label="Close report">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="report-frame-wrap">
+        <iframe id="report-frame" class="report-frame" title="" src="about:blank"
+                allowfullscreen="true" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <p class="report-hint">Interactive report · pinch or scroll inside it · Esc to close</p>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script src="js/gallery.js"></script>
+  <script src="js/report.js"></script>
 </body>
 </html>

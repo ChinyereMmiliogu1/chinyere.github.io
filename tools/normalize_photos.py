@@ -10,6 +10,11 @@ For each project folder:
   * saves as progressive JPEG q82 named 01.jpg, 02.jpg, ...
   * moves the untouched originals outside the repo
 
+Scope: assets/images/community_projects/ ONLY. The data project screenshots in
+assets/images/data_projects/ are intentionally left alone -- they are kept as
+PNG because JPEG compression softens the small text on a dashboard, and this
+script converts everything it touches to JPEG.
+
 Run from the repo root.
 """
 import os
